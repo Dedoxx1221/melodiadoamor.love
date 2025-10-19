@@ -1,0 +1,1729 @@
+
+<!DOCTYPE html><html lang="pt-PT"><head>
+    <meta charset="UTF-8">
+    <script>if(navigator.userAgent.match(/MSIE|Internet Explorer/i)||navigator.userAgent.match(/Trident\/7\..*?rv:11/i)){var href=document.location.href;if(!href.match(/[?&]nowprocket/)){if(href.indexOf("?")==-1){if(href.indexOf("#")==-1){document.location.href=href+"?nowprocket=1"}else{document.location.href=href.replace("#","?nowprocket=1#")}}else{if(href.indexOf("#")==-1){document.location.href=href+"&nowprocket=1"}else{document.location.href=href.replace("#","&nowprocket=1#")}}}}</script>
+
+    <script>(()=>{class RocketLazyLoadScripts{constructor(){this.v="1.2.6",this.triggerEvents=["keydown","mousedown","mousemove","touchmove","touchstart","touchend","wheel"],this.userEventHandler=this.t.bind(this),this.touchStartHandler=this.i.bind(this),this.touchMoveHandler=this.o.bind(this),this.touchEndHandler=this.h.bind(this),this.clickHandler=this.u.bind(this),this.interceptedClicks=[],this.interceptedClickListeners=[],this.l(this),window.addEventListener("pageshow",(t=>{this.persisted=t.persisted,this.everythingLoaded&&this.m()})),this.CSPIssue=sessionStorage.getItem("rocketCSPIssue"),document.addEventListener("securitypolicyviolation",(t=>{this.CSPIssue||"script-src-elem"!==t.violatedDirective||"data"!==t.blockedURI||(this.CSPIssue=!0,sessionStorage.setItem("rocketCSPIssue",!0))})),document.addEventListener("DOMContentLoaded",(()=>{this.k()})),this.delayedScripts={normal:[],async:[],defer:[]},this.trash=[],this.allJQueries=[]}p(t){document.hidden?t.t():(this.triggerEvents.forEach((e=>window.addEventListener(e,t.userEventHandler,{passive:!0}))),window.addEventListener("touchstart",t.touchStartHandler,{passive:!0}),window.addEventListener("mousedown",t.touchStartHandler),document.addEventListener("visibilitychange",t.userEventHandler))}_(){this.triggerEvents.forEach((t=>window.removeEventListener(t,this.userEventHandler,{passive:!0}))),document.removeEventListener("visibilitychange",this.userEventHandler)}i(t){"HTML"!==t.target.tagName&&(window.addEventListener("touchend",this.touchEndHandler),window.addEventListener("mouseup",this.touchEndHandler),window.addEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.addEventListener("mousemove",this.touchMoveHandler),t.target.addEventListener("click",this.clickHandler),this.L(t.target,!0),this.S(t.target,"onclick","rocket-onclick"),this.C())}o(t){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler),t.target.removeEventListener("click",this.clickHandler),this.L(t.target,!1),this.S(t.target,"rocket-onclick","onclick"),this.M()}h(){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler)}u(t){t.target.removeEventListener("click",this.clickHandler),this.L(t.target,!1),this.S(t.target,"rocket-onclick","onclick"),this.interceptedClicks.push(t),t.preventDefault(),t.stopPropagation(),t.stopImmediatePropagation(),this.M()}O(){window.removeEventListener("touchstart",this.touchStartHandler,{passive:!0}),window.removeEventListener("mousedown",this.touchStartHandler),this.interceptedClicks.forEach((t=>{t.target.dispatchEvent(new MouseEvent("click",{view:t.view,bubbles:!0,cancelable:!0}))}))}l(t){EventTarget.prototype.addEventListenerWPRocketBase=EventTarget.prototype.addEventListener,EventTarget.prototype.addEventListener=function(e,i,o){"click"!==e||t.windowLoaded||i===t.clickHandler||t.interceptedClickListeners.push({target:this,func:i,options:o}),(this||window).addEventListenerWPRocketBase(e,i,o)}}L(t,e){this.interceptedClickListeners.forEach((i=>{i.target===t&&(e?t.removeEventListener("click",i.func,i.options):t.addEventListener("click",i.func,i.options))})),t.parentNode!==document.documentElement&&this.L(t.parentNode,e)}D(){return new Promise((t=>{this.P?this.M=t:t()}))}C(){this.P=!0}M(){this.P=!1}S(t,e,i){t.hasAttribute&&t.hasAttribute(e)&&(event.target.setAttribute(i,event.target.getAttribute(e)),event.target.removeAttribute(e))}t(){this._(this),"loading"===document.readyState?document.addEventListener("DOMContentLoaded",this.R.bind(this)):this.R()}k(){let t=[];document.querySelectorAll("script[type=rocketlazyloadscript][data-rocket-src]").forEach((e=>{let i=e.getAttribute("data-rocket-src");if(i&&!i.startsWith("data:")){0===i.indexOf("//")&&(i=location.protocol+i);try{const o=new URL(i).origin;o!==location.origin&&t.push({src:o,crossOrigin:e.crossOrigin||"module"===e.getAttribute("data-rocket-type")})}catch(t){}}})),t=[...new Map(t.map((t=>[JSON.stringify(t),t]))).values()],this.T(t,"preconnect")}async R(){this.lastBreath=Date.now(),this.j(this),this.F(this),this.I(),this.W(),this.q(),await this.A(this.delayedScripts.normal),await this.A(this.delayedScripts.defer),await this.A(this.delayedScripts.async);try{await this.U(),await this.H(this),await this.J()}catch(t){console.error(t)}window.dispatchEvent(new Event("rocket-allScriptsLoaded")),this.everythingLoaded=!0,this.D().then((()=>{this.O()})),this.N()}W(){document.querySelectorAll("script[type=rocketlazyloadscript]").forEach((t=>{t.hasAttribute("data-rocket-src")?t.hasAttribute("async")&&!1!==t.async?this.delayedScripts.async.push(t):t.hasAttribute("defer")&&!1!==t.defer||"module"===t.getAttribute("data-rocket-type")?this.delayedScripts.defer.push(t):this.delayedScripts.normal.push(t):this.delayedScripts.normal.push(t)}))}async B(t){if(await this.G(),!0!==t.noModule||!("noModule"in HTMLScriptElement.prototype))return new Promise((e=>{let i;function o(){(i||t).setAttribute("data-rocket-status","executed"),e()}try{if(navigator.userAgent.indexOf("Firefox/")>0||""===navigator.vendor||this.CSPIssue)i=document.createElement("script"),[...t.attributes].forEach((t=>{let e=t.nodeName;"type"!==e&&("data-rocket-type"===e&&(e="type"),"data-rocket-src"===e&&(e="src"),i.setAttribute(e,t.nodeValue))})),t.text&&(i.text=t.text),i.hasAttribute("src")?(i.addEventListener("load",o),i.addEventListener("error",(function(){i.setAttribute("data-rocket-status","failed-network"),e()})),setTimeout((()=>{i.isConnected||e()}),1)):(i.text=t.text,o()),t.parentNode.replaceChild(i,t);else{const i=t.getAttribute("data-rocket-type"),s=t.getAttribute("data-rocket-src");i?(t.type=i,t.removeAttribute("data-rocket-type")):t.removeAttribute("type"),t.addEventListener("load",o),t.addEventListener("error",(i=>{this.CSPIssue&&i.target.src.startsWith("data:")?(console.log("WPRocket: data-uri blocked by CSP -> fallback"),t.removeAttribute("src"),this.B(t).then(e)):(t.setAttribute("data-rocket-status","failed-network"),e())})),s?(t.removeAttribute("data-rocket-src"),t.src=s):t.src="data:text/javascript;base64,"+window.btoa(unescape(encodeURIComponent(t.text)))}}catch(i){t.setAttribute("data-rocket-status","failed-transform"),e()}}));t.setAttribute("data-rocket-status","skipped")}async A(t){const e=t.shift();return e&&e.isConnected?(await this.B(e),this.A(t)):Promise.resolve()}q(){this.T([...this.delayedScripts.normal,...this.delayedScripts.defer,...this.delayedScripts.async],"preload")}T(t,e){var i=document.createDocumentFragment();t.forEach((t=>{const o=t.getAttribute&&t.getAttribute("data-rocket-src")||t.src;if(o&&!o.startsWith("data:")){const s=document.createElement("link");s.href=o,s.rel=e,"preconnect"!==e&&(s.as="script"),t.getAttribute&&"module"===t.getAttribute("data-rocket-type")&&(s.crossOrigin=!0),t.crossOrigin&&(s.crossOrigin=t.crossOrigin),t.integrity&&(s.integrity=t.integrity),i.appendChild(s),this.trash.push(s)}})),document.head.appendChild(i)}j(t){let e={};function i(i,o){return e[o].eventsToRewrite.indexOf(i)>=0&&!t.everythingLoaded?"rocket-"+i:i}function o(t,o){!function(t){e[t]||(e[t]={originalFunctions:{add:t.addEventListener,remove:t.removeEventListener},eventsToRewrite:[]},t.addEventListener=function(){arguments[0]=i(arguments[0],t),e[t].originalFunctions.add.apply(t,arguments)},t.removeEventListener=function(){arguments[0]=i(arguments[0],t),e[t].originalFunctions.remove.apply(t,arguments)})}(t),e[t].eventsToRewrite.push(o)}function s(e,i){let o=e[i];e[i]=null,Object.defineProperty(e,i,{get:()=>o||function(){},set(s){t.everythingLoaded?o=s:e["rocket"+i]=o=s}})}o(document,"DOMContentLoaded"),o(window,"DOMContentLoaded"),o(window,"load"),o(window,"pageshow"),o(document,"readystatechange"),s(document,"onreadystatechange"),s(window,"onload"),s(window,"onpageshow");try{Object.defineProperty(document,"readyState",{get:()=>t.rocketReadyState,set(e){t.rocketReadyState=e},configurable:!0}),document.readyState="loading"}catch(t){console.log("WPRocket DJE readyState conflict, bypassing")}}F(t){let e;function i(e){return t.everythingLoaded?e:e.split(" ").map((t=>"load"===t||0===t.indexOf("load.")?"rocket-jquery-load":t)).join(" ")}function o(o){function s(t){const e=o.fn[t];o.fn[t]=o.fn.init.prototype[t]=function(){return this[0]===window&&("string"==typeof arguments[0]||arguments[0]instanceof String?arguments[0]=i(arguments[0]):"object"==typeof arguments[0]&&Object.keys(arguments[0]).forEach((t=>{const e=arguments[0][t];delete arguments[0][t],arguments[0][i(t)]=e}))),e.apply(this,arguments),this}}o&&o.fn&&!t.allJQueries.includes(o)&&(o.fn.ready=o.fn.init.prototype.ready=function(e){return t.domReadyFired?e.bind(document)(o):document.addEventListener("rocket-DOMContentLoaded",(()=>e.bind(document)(o))),o([])},s("on"),s("one"),t.allJQueries.push(o)),e=o}o(window.jQuery),Object.defineProperty(window,"jQuery",{get:()=>e,set(t){o(t)}})}async H(t){const e=document.querySelector("script[data-webpack]");e&&(await async function(){return new Promise((t=>{e.addEventListener("load",t),e.addEventListener("error",t)}))}(),await t.K(),await t.H(t))}async U(){this.domReadyFired=!0;try{document.readyState="interactive"}catch(t){}await this.G(),document.dispatchEvent(new Event("rocket-readystatechange")),await this.G(),document.rocketonreadystatechange&&document.rocketonreadystatechange(),await this.G(),document.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this.G(),window.dispatchEvent(new Event("rocket-DOMContentLoaded"))}async J(){try{document.readyState="complete"}catch(t){}await this.G(),document.dispatchEvent(new Event("rocket-readystatechange")),await this.G(),document.rocketonreadystatechange&&document.rocketonreadystatechange(),await this.G(),window.dispatchEvent(new Event("rocket-load")),await this.G(),window.rocketonload&&window.rocketonload(),await this.G(),this.allJQueries.forEach((t=>t(window).trigger("rocket-jquery-load"))),await this.G();const t=new Event("rocket-pageshow");t.persisted=this.persisted,window.dispatchEvent(t),await this.G(),window.rocketonpageshow&&window.rocketonpageshow({persisted:this.persisted}),this.windowLoaded=!0}m(){document.onreadystatechange&&document.onreadystatechange(),window.onload&&window.onload(),window.onpageshow&&window.onpageshow({persisted:this.persisted})}I(){const t=new Map;document.write=document.writeln=function(e){const i=document.currentScript;i||console.error("WPRocket unable to document.write this: "+e);const o=document.createRange(),s=i.parentElement;let n=t.get(i);void 0===n&&(n=i.nextSibling,t.set(i,n));const c=document.createDocumentFragment();o.setStart(c,0),c.appendChild(o.createContextualFragment(e)),s.insertBefore(c,n)}}async G(){Date.now()-this.lastBreath>45&&(await this.K(),this.lastBreath=Date.now())}async K(){return document.hidden?new Promise((t=>setTimeout(t))):new Promise((t=>requestAnimationFrame(t)))}N(){this.trash.forEach((t=>t.remove()))}static run(){const t=new RocketLazyLoadScripts;t.p(t)}}RocketLazyLoadScripts.run()})();</script>
+
+    <title>NÃO PERCA ESSA CHANCE! – Lorde Das Ereções</title>
+
+    <link rel="preload" data-rocket-preload="" as="style" href="https://fonts.googleapis.com/css?family=Roboto%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CRoboto%20Slab%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CBebas%20Neue%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CMontserrat%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CSora%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CRoboto%20Slab%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CBebas%20Neue%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CMontserrat%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CSora%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&display=swap" media="print" onload="this.media='all'"><noscript>
+    	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CRoboto%20Slab%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CBebas%20Neue%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CMontserrat%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CSora%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&display=swap" /></noscript>
+    	<link rel="preload" data-rocket-preload="" as="style" href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&display=swap" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&display=swap" /></noscript>
+    	<link rel="preload" data-rocket-preload="" as="image" href="images/logo-horizontal_03.png" imagesrcset="images/logo-horizontal_03.png 1024w, images/logo-horizontal_03.png 300w, images/logo-horizontal_03.png 768w, images/logo-horizontal_03.png 1088w" imagesizes="(max-width: 800px) 100vw, 800px" fetchpriority="high">
+    <meta name="robots" content="max-image-preview:large">
+	<style>img:is([sizes="auto" i], [sizes^="auto," i]) { contain-intrinsic-size: 3000px 1500px }</style>
+	<link href="https://fonts.gstatic.com" crossorigin="" rel="preconnect">
+
+    <style id="wp-emoji-styles-inline-css">
+    
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+</style>
+<style id="classic-theme-styles-inline-css">
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+</style>
+<style id="global-styles-inline-css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}
+:root :where(.wp-block-pullquote){font-size: 1.5em;line-height: 1.6;}
+</style>
+<link data-minify="1" rel="stylesheet" id="my_css-css" href="css/POaZzwymYRTO.css" media="all">
+<link rel="stylesheet" id="jquery-ui-core-css" href="css/HzRILdaQFRnn.css" media="all">
+<link rel="stylesheet" id="hello-elementor-css" href="css/RHLec4BRsfFp.css" media="all">
+<link rel="stylesheet" id="hello-elementor-theme-style-css" href="css/bCEkPKPgAAp2.css" media="all">
+<link rel="stylesheet" id="hello-elementor-header-footer-css" href="css/KvB4rsfjjkvQ.css" media="all">
+<link rel="stylesheet" id="elementor-frontend-css" href="css/EJOH324XKehe.css" media="all">
+<link rel="stylesheet" id="elementor-post-5-css" href="css/Zc8omAMifhsH.css" media="all">
+<link data-minify="1" rel="stylesheet" id="swiper-css" href="css/RqOFHigydFNk.css" media="all">
+<link rel="stylesheet" id="e-swiper-css" href="css/6xVR37pjxjkc.css" media="all">
+
+<link rel="stylesheet" id="widget-image-css" href="css/XxPScppDkNFa.css" media="all">
+<link rel="stylesheet" id="widget-heading-css" href="css/qZQZdlXVYLuN.css" media="all">
+<link rel="stylesheet" id="widget-text-editor-css" href="css/sc69ZNmhcmyl.css" media="all">
+<link rel="stylesheet" id="widget-divider-css" href="css/NkqRLsjzTNwy.css" media="all">
+<link rel="stylesheet" id="widget-spacer-css" href="css/H6tzyURfdYzx.css" media="all">
+<link rel="stylesheet" id="elementor-post-1078-css" href="css/qsci6sPgXx9Y.css" media="all">
+
+<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+
+
+<meta name="generator" content="WordPress 6.7.1">
+
+
+
+<link rel="dns-prefetch" href="https://cdn.converteai.net">
+<link rel="dns-prefetch" href="https://scripts.converteai.net">
+<link rel="dns-prefetch" href="https://images.converteai.net">
+<link rel="dns-prefetch" href="https://api.vturb.com.br">
+
+<link rel="stylesheet" href="css/M9g1Bo0fQYTs.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+<meta name="generator" content="Elementor 3.25.3; features: e_font_icon_svg, additional_custom_breakpoints, e_optimized_control_loading, e_element_cache; settings: css_print_method-external, google_font-enabled, font_display-swap">
+<style>
+    .e-con.e-parent:nth-of-type(n+4):not(.e-lazyloaded):not(.e-no-lazyload),
+    .e-con.e-parent:nth-of-type(n+4):not(.e-lazyloaded):not(.e-no-lazyload) * {
+        background-image: none !important;
+    }
+    @media screen and (max-height: 1024px) {
+        .e-con.e-parent:nth-of-type(n+3):not(.e-lazyloaded):not(.e-no-lazyload),
+        .e-con.e-parent:nth-of-type(n+3):not(.e-lazyloaded):not(.e-no-lazyload) * {
+            background-image: none !important;
+        }
+    }
+    @media screen and (max-height: 640px) {
+        .e-con.e-parent:nth-of-type(n+2):not(.e-lazyloaded):not(.e-no-lazyload),
+        .e-con.e-parent:nth-of-type(n+2):not(.e-lazyloaded):not(.e-no-lazyload) * {
+            background-image: none !important;
+        }
+    }
+</style>
+			<meta name="theme-color" content="#FFFFFF">
+			<link rel="icon" href="images/ZZJpGMEQ36TX.png" sizes="32x32">
+<link rel="icon" href="images/WZ4toCmvtntJ.png" sizes="192x192">
+<link rel="apple-touch-icon" href="images/WZ4toCmvtntJ.png">
+
+<noscript><style id="rocket-lazyload-nojs-css">.rll-youtube-player, [data-lazy-src]{display:none !important;}</style></noscript>	
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<style id="wpr-lazyload-bg-container"></style>
+<style id="wpr-lazyload-bg-exclusion"></style>
+<noscript>
+<style id="wpr-lazyload-bg-nostyle">.ui-icon,.ui-widget-content .ui-icon{--wpr-bg-983aa3ea-a258-460e-ab8b-9dc708559007: url('images/ui-icons_444444_256x240.png');}.ui-widget-header .ui-icon{--wpr-bg-80e81743-c90e-4d15-b8ba-53bbb721eefe: url('images/ui-icons_444444_256x240.png');}.ui-state-hover .ui-icon,.ui-state-focus .ui-icon,.ui-button:hover .ui-icon,.ui-button:focus .ui-icon{--wpr-bg-a3f00cb7-0b18-465e-b473-94f9f97decf1: url('images/ui-icons_555555_256x240.png');}.ui-state-active .ui-icon,.ui-button:active .ui-icon{--wpr-bg-a2a1bb7d-d325-4475-b27e-a076440fe4b6: url('images/ui-icons_ffffff_256x240.png');}.ui-state-highlight .ui-icon,.ui-button .ui-state-highlight.ui-icon{--wpr-bg-24308929-2655-4e51-b793-e00e38aa3b39: url('images/ui-icons_777620_256x240.png');}.ui-state-error .ui-icon,.ui-state-error-text .ui-icon{--wpr-bg-df8e6999-3594-4657-866c-ab1443b8aee9: url('images/ui-icons_cc0000_256x240.png');}.ui-button .ui-icon{--wpr-bg-9e538e24-4464-416a-92ac-cf91136ef52d: url('images/ui-icons_777777_256x240.png');}</style>
+</noscript>
+
+
+<meta name="generator" content="WP Rocket 3.17.2" data-wpr-features="wpr_lazyload_css_bg_img wpr_delay_js wpr_defer_js wpr_minify_js wpr_lazyload_images wpr_oci wpr_minify_css wpr_desktop wpr_preload_links">
+<script src="https://cdn.utmify.com.br/scripts/utms/latest.js" data-utmify-prevent-subids="" data-utmify-ignore-iframe="" async="" defer=""></script>
+
+</head>
+<body class="page-template-default page page-id-1078 wp-custom-logo elementor-default elementor-template-canvas elementor-kit-5 elementor-page elementor-page-1078">
+			<div data-elementor-type="wp-page" data-elementor-id="1078" class="elementor elementor-1078" data-elementor-post-type="page">
+				<div class="elementor-element elementor-element-f29f067 e-flex e-con-boxed e-con e-parent" data-id="f29f067" data-element_type="container" data-settings="{" ":"classic"}"="">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-ee70631 elementor-widget elementor-widget-image" data-id="ee70631" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+       
+      </div>
+				</div>
+				<div class="elementor-element elementor-element-b03d162 elementor-widget elementor-widget-heading" data-id="b03d162" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default">OFERTA IMPERDÍVEL!</h2>		</div>
+				</div>
+				<div class="elementor-element elementor-element-eaa75d4 elementor-widget elementor-widget-text-editor" data-id="eaa75d4" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+							<p>Parabéns! Você acaba de ser selecionado para aproveitar uma <strong><span class="special-text">promoção espetacular</span></strong>, especialmente criada para você!</p>						</div>
+				</div>
+				<div class="elementor-element elementor-element-95a28ef elementor-widget elementor-widget-text-editor" data-id="95a28ef" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+							VOCÊ GANHOU!!
+    <div class="arrow-down">↓</div>						</div>
+				</div>
+					</div>
+				</div>
+		<div class="elementor-element elementor-element-51d88e8 e-flex e-con-boxed e-con e-parent" data-id="51d88e8" data-element_type="container" data-settings="{" background_background":"classic"}"="">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-ab6f978 elementor-widget elementor-widget-html" data-id="ab6f978" data-element_type="widget" data-widget_type="html.default">
+				<div class="elementor-widget-container">
+			 <link href="https://fonts.cdnjs.cloudflare.com/ajax/libs/montserrat/700/montserrat-bold.min.css" rel="stylesheet">
+ 
+  <div class="container" style="margin-top: 3rem;">
+    <div class="green-header">ATÉ 34% DE DESCONTO:</div>
+    
+    <div class="content-section">
+      Aproveite um <span class="green-text">Desconto especial de até 34%</span> no Aplicativo<span class="bold-text"> Lorde das Ereções</span>. Não perca a oportunidade de adquirir aquilo que você deseja por um preço <span class="bold-text">nunca antes visto!</span>
+    </div>
+
+    <div class="arrow-down">↓</div>
+
+    <div class="green-header">BRINDE EXCLUSIVO:</div>
+    
+    <div class="content-section">
+      Ao realizar sua compra, você receberá acesso ao <span class="green-text">Lorde das Ereções</span>. Mais de <span class="green-text">90 horas</span> de conteúdo sem censura para tornar você <span class="bold-text">uma maquina de sexo na cama.</span>
+    </div>
+
+    <div class="arrow-down">↓</div>
+  </div>		</div>
+				</div>
+					</div>
+				</div>
+		<div class="elementor-element elementor-element-bcc4795 e-flex e-con-boxed e-con e-parent" data-id="bcc4795" data-element_type="container" data-settings="{" background_background":"classic"}"="">
+					<div class="e-con-inner">
+		<div class="elementor-element elementor-element-a82f43e esconde e-con-full e-flex e-con e-child" data-id="a82f43e" data-element_type="container" data-settings="{" background_background":"classic"}"="">
+		<div class="elementor-element elementor-element-7ce2cdb e-con-full e-flex e-con e-child" data-id="7ce2cdb" data-element_type="container" data-settings="{" background_background":"classic"}"="">
+				<div class="elementor-element elementor-element-05fd648 elementor-widget elementor-widget-heading" data-id="05fd648" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default">Bônus Inclusos</h2>		</div>
+				</div>
+				<div class="elementor-element elementor-element-316b8a9 elementor-widget-divider--view-line elementor-widget elementor-widget-divider" data-id="316b8a9" data-element_type="widget" data-widget_type="divider.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-divider">
+			<span class="elementor-divider-separator">
+						</span>
+		</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-3937441 e-con-full e-flex e-con e-child" data-id="3937441" data-element_type="container" data-settings="{" background_background":"classic"}"="">
+				<div class="elementor-element elementor-element-de7ea7a elementor-widget elementor-widget-heading" data-id="de7ea7a" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					</div>
+				</div>
+				<div class="elementor-element elementor-element-a637508 elementor-widget-mobile__width-inherit elementor-widget elementor-widget-image" data-id="a637508" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+                    <img decoding="async" width="800" height="651" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20800%20651'%3E%3C/svg%3E" class="attachment-large size-large wp-image-647" alt="" data-lazy-srcset="images/PROVASOCIAL.jpg 024w, images/PROVASOCIAL.jpg 300w, images/PROVASOCIAL.jpg 768w, images/PROVASOCIAL.jpg 1154w" data-lazy-sizes="(max-width: 800px) 100vw, 800px" data-lazy-src="images/PROVASOCIAL.jpg"><noscript><img decoding="async" width="800" height="651" src="images/PROVASOCIAL.jpg" class="attachment-large size-large wp-image-647" alt="" srcset="images/PROVASOCIAL.jpg 1024w, images/PROVASOCIAL.jpg 300w, images/PROVASOCIAL.jpg 768w, images/PROVASOCIAL.jpg 1154w" sizes="(max-width: 800px) 100vw, 800px" /></noscript>													</div>
+				</div>
+				<div class="elementor-element elementor-element-4b18046 elementor-widget elementor-widget-heading" data-id="4b18046" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default">Bônus Exclusivos: O Que Era Bom Ficou Ainda Melhor</h2>		</div>
+				</div>
+				<div class="elementor-element elementor-element-4b0bf54 elementor-widget elementor-widget-text-editor" data-id="4b0bf54" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+							<p>Ao garantir seu tratamento exclusivo com o App <strong>Lorde das Ereções</strong>, você desbloqueia um pacote de <strong>bônus secretos</strong>, projetados para <strong>multiplicar seus resultados</strong> e transformar sua vida íntima de uma vez por todas.</p><p>Estamos falando de <strong>segredos inacreditáveis</strong> que vão te colocar anos-luz à frente de qualquer outro homem – tudo isso, sem esforço extra e sem custos adicionais.</p><p>Esses bônus são tão poderosos que, sozinhos, <strong>já valeriam o preço do tratamento inteiro</strong>. Mas, hoje, eles são <strong>seus gratuitamente</strong> como parte dessa oferta especial.</p>						</div>
+				</div>
+				<div class="elementor-element elementor-element-c22cdb8 elementor-widget elementor-widget-html" data-id="c22cdb8" data-element_type="widget" data-widget_type="html.default">
+				<div class="elementor-widget-container">
+			
+
+
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Bônus EXCLUSIVO</title>
+    
+    <style>
+        /* ====== ESTILOS BASE ====== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Sora', sans-serif;
+        }
+
+        body {
+            line-height: 1.5;
+        }
+
+        /* ====== ESTRUTURA DO MODAL ====== */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 9998;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .modal {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            width: 90%;
+            max-width: 800px;
+            max-height: 90vh;
+            border-radius: 10px;
+            z-index: 9999;
+            padding: 25px;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        /* ====== MENU DE NAVEGAÇÃO ====== */
+        .bonus-nav {
+            position: sticky;
+            top: 0;
+            background: white;
+            padding: 10px 0;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 100;
+        }
+
+        .bonus-nav-list {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            list-style: none;
+            padding: 0;
+        }
+
+        .bonus-nav-item {
+            padding: 10px 20px;
+            background: #f5f5f5;
+            border-radius: 5px;
+            color: #333;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .bonus-nav-item.active {
+            background: #4e4b87;
+            color: white;
+        }
+
+        /* ====== CONTEÚDO DOS BÔNUS ====== */
+        .bonus-section {
+            margin-bottom: 40px;
+            padding-top: 20px;
+        }
+
+        .media-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            margin-bottom: 20px;
+        }
+
+        .media-container img,
+        .media-container video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+
+        .ratings {
+            margin-bottom: 15px;
+        }
+
+        .stars {
+            color: #FFD700;
+            font-size: 20px;
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        .ratings-text {
+            color: #1E0F3F;
+            font-weight: 600;
+            font-size: 16px;
+            display: inline-block;
+        }
+
+        .bonus-header {
+            margin: 20px 0;
+        }
+
+        .bonus-title {
+            font-size: 38px;
+            font-weight: 800;
+            color: #000;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+
+        .price-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .old-price {
+            color: #666;
+            text-decoration: line-through;
+            font-size: 20px;
+        }
+
+        .new-price {
+            color: #22C55E;
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .tag-red {
+            background: #FFACAC;
+            color: #4B4B4B;
+        }
+
+        .tag-gray {
+            background: #f1f1f1;
+            color: #666;
+        }
+
+        .benefits-list {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .benefits-list li {
+            margin-bottom: 15px;
+            padding-left: 25px;
+            position: relative;
+            color: #606161;
+            line-height: 1.5;
+        }
+
+        .benefits-list li::before {
+            content: "•";
+            color: #4e4b87;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        /* ====== BOTÕES E CONTROLES ====== */
+        .close-button {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            width: 40px;
+            height: 40px;
+            background: rgba(0, 0, 0, 0.5);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 24px;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            transition: background 0.3s;
+        }
+
+        .close-button:hover {
+            background: rgba(0, 0, 0, 0.7);
+        }
+
+        /* ====== RESPONSIVIDADE ====== */
+        @media (max-width: 480px) {
+            .modal {
+                width: 100%;
+                height: 100%;
+                max-height: 100%;
+                border-radius: 0;
+                padding: 15px;
+                position: fixed;
+                top: 0;
+                left: 0;
+                transform: none;
+            }
+
+            .bonus-nav-list {
+                flex-wrap: wrap;
+            }
+
+            .bonus-nav-item {
+                font-size: 14px;
+                padding: 8px 15px;
+            }
+
+            .bonus-title {
+                font-size: 32px;
+            }
+
+            .close-button {
+                top: 15px;
+                right: 15px;
+            }
+
+            .benefits-list li {
+                font-size: 14px;
+            }
+        }
+        
+            .modal-footer {
+            text-align: center;
+            margin-top: 20px;
+            padding-bottom: 20px;
+        }
+
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px 50px;
+            background: #4e4b87;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-bottom: 10px;
+        }
+
+        .back-button:hover {
+            background: #3d3a6b;
+        }
+
+        @media (max-width: 480px) {
+            .modal {
+                width: 100%;
+                height: 100%;
+                max-height: 100%;
+                border-radius: 0;
+                padding: 15px;
+                position: fixed;
+                top: 0;
+                left: 0;
+                transform: none;
+            }
+
+            .bonus-title {
+                font-size: 32px;
+            }
+
+            .close-button {
+                top: 15px;
+                right: 15px;
+            }
+
+            .benefits-list li {
+                font-size: 14px;
+            }
+
+            .back-button {
+                width: 100%;
+                padding: 15px 20px;
+                position: sticky;
+                bottom: 0;
+            }
+
+            .modal-footer {
+                position: sticky;
+                bottom: 0;
+                background: rgba(255, 255, 255, 0)
+                padding: 15px 0;
+                box-shadow: 0 -5px 10px rgba(0,0,0,0.1);
+            }
+        }
+        
+        /* Otimizações para garantir que o botão de fechar seja sempre visível */
+        @media (max-height: 700px) {
+            .modal {
+                padding-top: 50px;
+            }
+        }
+
+        /* Evitar que o conteúdo fique por cima do botão de fechar */
+        .modal-content {
+            padding-top: 20px;
+        }
+    </style>
+<style id="wpr-lazyload-bg-container"></style><style id="wpr-lazyload-bg-exclusion"></style>
+<noscript>
+<style id="wpr-lazyload-bg-nostyle">.ui-icon,.ui-widget-content .ui-icon{--wpr-bg-983aa3ea-a258-460e-ab8b-9dc708559007: url('images/ui-icons_444444_256x240.png');}.ui-widget-header .ui-icon{--wpr-bg-80e81743-c90e-4d15-b8ba-53bbb721eefe: url('images/ui-icons_444444_256x240.png');}.ui-state-hover .ui-icon,.ui-state-focus .ui-icon,.ui-button:hover .ui-icon,.ui-button:focus .ui-icon{--wpr-bg-a3f00cb7-0b18-465e-b473-94f9f97decf1: url('images/ui-icons_555555_256x240.png');}.ui-state-active .ui-icon,.ui-button:active .ui-icon{--wpr-bg-a2a1bb7d-d325-4475-b27e-a076440fe4b6: url('images/ui-icons_ffffff_256x240.png');}.ui-state-highlight .ui-icon,.ui-button .ui-state-highlight.ui-icon{--wpr-bg-24308929-2655-4e51-b793-e00e38aa3b39: url('images/ui-icons_777620_256x240.png');}.ui-state-error .ui-icon,.ui-state-error-text .ui-icon{--wpr-bg-df8e6999-3594-4657-866c-ab1443b8aee9: url('images/ui-icons_cc0000_256x240.png');}.ui-button .ui-icon{--wpr-bg-9e538e24-4464-416a-92ac-cf91136ef52d: url('images/ui-icons_777777_256x240.png');}</style>
+</noscript>
+
+    <!-- Botão que abre o modal -->
+    <div class="bonus-button-container">
+        <button class="bonus-button" onclick="openModal()" style="background-color: #fc1000; color: #fff;">
+            Visualizar bônus
+            <span class="icon">→</span>
+        </button>
+    </div>
+
+    <!-- Modal e Overlay -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal">
+            <!-- Botão Fechar -->
+            <button class="close-button" onclick="closeModal()">×</button>
+
+            <!-- Seções de Bônus -->
+           
+
+            <!-- Bônus 2 - Acompanhamento VIP -->
+            <section id="bonus2" class="bonus-section">
+                <div class="media-container">
+                    <img decoding="async" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="Acompanhamento VIP" data-lazy-src="images/acompanhamento.webp"><noscript><img decoding="async" src="images/acompanhamento.webp" alt="Acompanhamento VIP"></noscript>
+                </div>
+                <div class="ratings">
+                    <span class="stars">⭐️⭐️⭐️⭐️⭐️</span>
+                    <span class="ratings-text">+4 Mil Avaliações de Clientes</span>
+                </div>
+                <div class="bonus-header">
+                    <h2 class="bonus-title">Acompanhamento VIP</h2>
+                    <div class="price-container">
+                        <span class="old-price">R$1.200,00</span>
+                        <span class="new-price">GRÁTIS</span>
+                    </div>
+                </div>
+                <div class="tag tag-gray">6 meses incluso</div>
+                <ul class="benefits-list">
+                    <li>Receba um acompanhamento 1 a 1 com o Dr. Carlos para garantir e acelerar os seus resultados.</li>
+                    <li>Acesso a uma consulta em vídeo chamada.</li>
+                    <li>Receba lembretes de tomar o Tônico do Bicarbonato todos os dias.</li>
+                </ul>
+            </section>
+
+            <!-- Bônus 3 - Truque das Lésbicas -->
+            <section id="bonus3" class="bonus-section">
+                <div class="media-container">
+                    <video controls="">
+                        <source src="media/ArN8J8nZ4JmX.webm" type="video/webm">
+                        Seu navegador não suporta o elemento de vídeo.
+                    </video>
+                </div>
+                <div class="ratings">
+                    <span class="stars">⭐️⭐️⭐️⭐️⭐️</span>
+                    <span class="ratings-text">+4 Mil Avaliações de Clientes</span>
+                </div>
+                <div class="bonus-header">
+                    <h2 class="bonus-title">Truque Das Lésbicas</h2>
+                    <div class="price-container">
+                        <span class="old-price">R$197,00</span>
+                        <span class="new-price">GRÁTIS</span>
+                    </div>
+                </div>
+                <div class="tag tag-gray">Com modelos reais</div>
+                <ul class="benefits-list">
+                    <li>Nunca mais faça sua mulher ter que fingir orgasmos com você...</li>
+                    <li>Descubra o movimento secreto que mulheres nunca admitem querer - mas enlouquecem quanto acontece.</li>
+                    <li>A técnica silenciosa que reprograma o corpo dela para sentir prazer como nunca antes.</li>
+                </ul>
+            </section>
+
+            <!-- Bônus 4 - Respiração de 3 Segundos -->
+            <section id="bonus4" class="bonus-section">
+                <div class="media-container">
+                    <img decoding="async" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="Respiração de 3 Segundos" data-lazy-src="images/3s.webp"><noscript><img decoding="async" src="images/3s.webp" alt="Respiração de 3 Segundos"></noscript>
+                </div>
+                <div class="ratings">
+                    <span class="stars">⭐️⭐️⭐️⭐️⭐️</span>
+                    <span class="ratings-text">+4 Mil Avaliações de Clientes</span>
+                </div>
+                <div class="bonus-header">
+                    <h2 class="bonus-title">Respiração de 3 Segundos</h2>
+                    <div class="price-container">
+                        <span class="old-price">R$297,00</span>
+                        <span class="new-price">GRÁTIS</span>
+                    </div>
+                </div>
+                <div class="tag tag-gray">Conteúdo explícito</div>
+                <ul class="benefits-list">
+                    <li>A técnica secreta dos atores pornôs que garante total controle da ejaculação na cama.</li>
+                    <li>Uma simples respiração de 3 segundos pode te transformar num maratonista do prazer.</li>
+                    <li>Chega de fica ansioso toda vez que for transar, assuma o controle da situação!</li>
+                </ul>
+            </section>
+
+            <!-- Bônus 5 - Manual do Cafajeste -->
+            <section id="bonus5" class="bonus-section">
+                <div class="media-container">
+                    <img decoding="async" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="Manual do Cafajeste" data-lazy-src="images/manual.webp"><noscript><img decoding="async" src="images/manual.webp" alt="Manual do Cafajeste"></noscript>
+                </div>
+                <div class="ratings">
+                    <span class="stars">⭐️⭐️⭐️⭐️⭐️</span>
+                    <span class="ratings-text">+4 Mil Avaliações de Clientes</span>
+                </div>
+                <div class="bonus-header">
+                    <h2 class="bonus-title">Manual do Cafajeste</h2>
+                    <div class="price-container">
+                    <div class="price-container">
+                        <span class="old-price">R$97,00</span>
+                        <span class="new-price">GRÁTIS</span>
+                    </div>
+                </div>
+                <div class="tag tag-gray">Conteúdo explícito</div>
+                <ul class="benefits-list">
+                    <li>A técnica secreta que coloca você no controle total da mente e corpo feminino.</li>
+                    <li>Como ser o cara que elas obedecem com um sorriso - e ainda pedem mais.</li>
+                    <li>Descubra os macetes mentais que fazem qualquer mulher seguir suas regras sem questionar.</li>
+                </ul>
+            </div></section>
+      <div class="modal-footer">
+                <button class="back-button" onclick="closeModal()">Voltar</button>
+            </div>
+        </div>
+    </div>
+
+    <script type="rocketlazyloadscript">
+        // Funções principais
+        function openModal() {
+            document.getElementById('modalOverlay').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+            // Reset scroll position
+            document.querySelector('.modal').scrollTop = 0;
+        }
+
+        function closeModal() {
+            document.getElementById('modalOverlay').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Scroll suave para as seções
+        function scrollToBonus(bonusId) {
+            const element = document.getElementById(bonusId);
+            const modal = document.querySelector('.modal');
+            const navHeight = document.querySelector('.bonus-nav').offsetHeight;
+            
+            if (element) {
+                modal.scrollTo({
+                    top: element.offsetTop - navHeight - 20,
+                    behavior: 'smooth'
+                });
+            }
+            
+            // Atualiza o menu ativo
+            updateActiveNavItem(bonusId);
+        }
+
+        // Atualiza item ativo no menu
+        function updateActiveNavItem(bonusId) {
+            document.querySelectorAll('.bonus-nav-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            const activeIndex = parseInt(bonusId.replace('bonus', '')) - 1;
+            document.querySelectorAll('.bonus-nav-item')[activeIndex].classList.add('active');
+        }
+
+        // Detecta a seção visível durante scroll
+        function handleScroll() {
+            const modal = document.querySelector('.modal');
+            const sections = document.querySelectorAll('.bonus-section');
+            const navHeight = document.querySelector('.bonus-nav').offsetHeight;
+
+            sections.forEach((section, index) => {
+                const rect = section.getBoundingClientRect();
+                const modalRect = modal.getBoundingClientRect();
+                
+                if (rect.top >= modalRect.top && 
+                    rect.top <= (modalRect.top + modalRect.height - navHeight)) {
+                    updateActiveNavItem(`bonus${index + 1}`);
+                }
+            });
+        }
+
+        // Event Listeners
+        document.addEventListener('DOMContentLoaded', function() {
+            const modal = document.querySelector('.modal');
+            
+            // Scroll listener
+            modal.addEventListener('scroll', handleScroll);
+
+            });
+
+            // Fechar com ESC
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') closeModal();
+            });
+
+        });
+    </script>
+<script>class RocketElementorAnimation{constructor(){this.deviceMode=document.createElement("span"),this.deviceMode.id="elementor-device-mode-wpr",this.deviceMode.setAttribute("class","elementor-screen-only"),document.body.appendChild(this.deviceMode)}_detectAnimations(){let t=getComputedStyle(this.deviceMode,":after").content.replace(/"/g,"");this.animationSettingKeys=this._listAnimationSettingsKeys(t),document.querySelectorAll(".elementor-invisible[data-settings]").forEach(t=>{const e=t.getBoundingClientRect();if(e.bottom>=0&&e.top<=window.innerHeight)try{this._animateElement(t)}catch(t){}})}_animateElement(t){const e=JSON.parse(t.dataset.settings),i=e._animation_delay||e.animation_delay||0,n=e[this.animationSettingKeys.find(t=>e[t])];if("none"===n)return void t.classList.remove("elementor-invisible");t.classList.remove(n),this.currentAnimation&&t.classList.remove(this.currentAnimation),this.currentAnimation=n;let s=setTimeout(()=>{t.classList.remove("elementor-invisible"),t.classList.add("animated",n),this._removeAnimationSettings(t,e)},i);window.addEventListener("rocket-startLoading",function(){clearTimeout(s)})}_listAnimationSettingsKeys(t="mobile"){const e=[""];switch(t){case"mobile":e.unshift("_mobile");case"tablet":e.unshift("_tablet");case"desktop":e.unshift("_desktop")}const i=[];return["animation","_animation"].forEach(t=>{e.forEach(e=>{i.push(t+e)})}),i}_removeAnimationSettings(t,e){this._listAnimationSettingsKeys().forEach(t=>delete e[t]),t.dataset.settings=JSON.stringify(e)}static run(){const t=new RocketElementorAnimation;requestAnimationFrame(t._detectAnimations.bind(t))}}document.addEventListener("DOMContentLoaded",RocketElementorAnimation.run);</script>
+                    
+    <script type="rocketlazyloadscript">
+        function openModal() {
+            document.getElementById('modalOverlay').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+            
+            // Garante que o usuário comece do topo do modal
+            const modal = document.querySelector('.modal');
+            if(modal) modal.scrollTop = 0;
+        }
+
+        function closeModal() {
+            document.getElementById('modalOverlay').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Múltiplas formas de fechar o modal
+        document.addEventListener('DOMContentLoaded', function() {
+            // Fechar ao clicar no overlay
+            document.getElementById('modalOverlay').addEventListener('click', function(e) {
+                if (e.target === this) closeModal();
+            });
+
+            // Fechar com a tecla ESC
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') closeModal();
+            });
+
+            // Prevenir que o toque no modal feche a janela em dispositivos móveis
+            document.querySelector('.modal').addEventListener('click', function(e) {
+                e.stopPropagation();
+            });
+        });
+    </script>
+		</div>
+				</div>
+				</div>
+				</div>
+				</div>
+					</div>
+				</div>
+		<div class="elementor-element elementor-element-c0ca280 e-flex e-con-boxed e-con e-parent" data-id="c0ca280" data-element_type="container" data-settings="{" background_background":"classic"}"="">
+					<div class="e-con-inner">
+		<div class="elementor-element elementor-element-ba5b2d5 e-con-full e-flex e-con e-child" data-id="ba5b2d5" data-element_type="container" data-settings="{" background_background":"classic"}"="">
+				<div class="elementor-element elementor-element-d192dd7 elementor-widget elementor-widget-html" data-id="d192dd7" data-element_type="widget" data-widget_type="html.default">
+				<div class="elementor-widget-container">
+			  <style>
+    .promo-container {
+
+      color: white;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .promo-title {
+      color: #ff3333;
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 2rem;
+    }
+
+    .features {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .feature {
+      flex: 1;
+      min-width: 150px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .feature img {
+      width: 50px;
+      height: 50px;
+      object-fit: contain;
+    }
+
+    .feature-text {
+      font-size: 0.9rem;
+      line-height: 1.2;
+    }
+
+    .promo-footer {
+      font-size: 1.2rem;
+    }
+
+    .highlight {
+      font-weight: bold;
+    }
+  </style>
+
+  <div class="promo-container">
+    <div class="promo-title">
+      APROVEITE A OFERTA IDEAL PARA VOCÊ!
+    </div>
+    
+     <div>
+      <img decoding="async" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="Feature Icon" data-lazy-src="images/Banner-Seguro-Desk-1.webp"><noscript><img decoding="async" src="images/Banner-Seguro-Desk-1.webp" alt="Feature Icon"></noscript>
+    </div>
+    
+    
+    <div class="promo-footer">
+      <br>Garanta <span class="highlight">acesso vitalício</span> e <span class="highlight">bônus exclusivos</span> somente hoje!
+    </div>
+    
+    </div>		</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-92be260 e-con-full btnBuyTextMobile e-flex e-con e-child" data-id="92be260" data-element_type="container">
+				<div class="elementor-element elementor-element-f318064 elementor-widget elementor-widget-html" data-id="f318064" data-element_type="widget" data-widget_type="html.default">
+				<div class="elementor-widget-container">
+			<section class="sales-section">
+        <div class="container">
+
+
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Botão de Compra</title>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Sora', sans-serif;
+            
+            
+        }
+
+        .productBuy-mobile {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 15px;
+            font-weight: 900;
+        }
+
+        .titleDiv {
+            text-align: center;
+            margin-bottom: 15px;
+            font-weight: 900;
+        }
+
+        .titleDiv h2 {
+            color: ##ff0000;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .titleDiv hr {
+            border: none;
+            height: 3px;
+            background: #d33617;
+            width: 70px;
+            margin: 0 auto;
+        }
+
+        .product-preview {
+            width: 100%;
+            border-radius: 20px;
+            padding-top: 15px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .infoProdutos1 {
+            text-align: center;
+            margin: 15px 0 10px;
+        }
+
+        .kit-rendimento-text {
+            font-size: 18px;
+            font-weight: 500;
+            color: #606161;
+            margin-bottom: 0.5rem;
+        }
+
+        #kit-rendimento {
+            color: #d33617;
+            font-size: 18px;
+            font-weight: 800;
+        }
+
+        .economize {
+            display: inline-block;
+            font-size: 15.702px;
+            font-weight: 900;
+            background-color: rgb(225, 245, 231);
+            color: #3ec18d;
+            border-radius: 8.723px;
+            padding: 6px 15px;
+            margin: 5px 0;
+        }
+
+        .nav-pills {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin: 15px 0;
+            padding-top: 15px;
+        }
+
+        .nav-item {
+            width: 119px;
+            height: 117px;
+            border-radius: 10px;
+            background: #e6e7e7;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .nav-item.active {
+            background: #fc1000;
+        }
+
+        .spanPote {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 12.864px;
+            font-weight: 700;
+            color: #FFF;
+            background: #767676;
+            padding: 4px 8px;
+            border-radius: 10px 10px 0px 0px;
+            white-space: nowrap;
+            width: 100%;
+            max-width: 119px;
+            text-align: center;
+        }
+
+        .nav-item.active .spanPote {
+            background: #6a0707;
+        }
+
+        .poteH1 {
+            color: #606161;
+            font-size: 38px;
+            font-weight: 700;
+            line-height: 1;
+            margin: 0 0 5px;
+            text-align: center;
+        }
+
+        .nav-item p {
+            font-size: 18px;
+            font-weight: 500;
+            margin: 0;
+            color: #606161;
+            text-align: center;
+        }
+
+        .nav-item.active .poteH1,
+        .nav-item.active p {
+            color: white;
+        }
+
+        .price-section {
+            text-align: center;
+            margin: 15px 0;
+        }
+
+        .price-today {
+            color: ##ff0000;
+            font-size: 18px;
+            font-weight: 900;
+            margin-bottom: 5px;
+        }
+
+        .lead small:first-child {
+            color: #d33617;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        #kit-valor-parcela {
+            color: #d33617;
+            font-size: 22px;
+            font-weight: 800;
+            line-height: 28.763px;
+        }
+
+        #kit-preco-avista {
+            color: #B4B4B4;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .btn_carrinho-mobile {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            background: #00d084;
+            color: white;
+            padding: 15px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 15px;
+            transition: background-color 0.3s;
+        }
+
+        .btn_carrinho-mobile:hover {
+            background: #35a77a;
+        }
+
+        .btnBuyText {
+            color: white;
+            font-size: 22px;
+            font-weight: 900;
+            margin: 0;
+        }
+
+        .arrow-icon {
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        @media (max-width: 480px) {
+            .productBuy-mobile {
+                padding: 10px;
+            }
+
+            .nav-item {
+                width: 100px;
+                height: 98px;
+            }
+
+            .spanPote {
+                font-size: 11px;
+                max-width: 100px;
+                top: -12px;
+            }
+
+            .poteH1 {
+                font-size: 32px;
+            }
+
+            .nav-item p {
+                font-size: 16px;
+            }
+
+            .btnBuyText {
+                font-size: 18px;
+            }
+        }
+    </style>
+<style id="wpr-lazyload-bg-container"></style><style id="wpr-lazyload-bg-exclusion"></style>
+<noscript>
+<style id="wpr-lazyload-bg-nostyle">.ui-icon,.ui-widget-content .ui-icon{--wpr-bg-983aa3ea-a258-460e-ab8b-9dc708559007: url('images/ui-icons_444444_256x240.png');}.ui-widget-header .ui-icon{--wpr-bg-80e81743-c90e-4d15-b8ba-53bbb721eefe: url('images/ui-icons_444444_256x240.png');}.ui-state-hover .ui-icon,.ui-state-focus .ui-icon,.ui-button:hover .ui-icon,.ui-button:focus .ui-icon{--wpr-bg-a3f00cb7-0b18-465e-b473-94f9f97decf1: url('images/ui-icons_555555_256x240.png');}.ui-state-active .ui-icon,.ui-button:active .ui-icon{--wpr-bg-a2a1bb7d-d325-4475-b27e-a076440fe4b6: url('images/ui-icons_ffffff_256x240.png');}.ui-state-highlight .ui-icon,.ui-button .ui-state-highlight.ui-icon{--wpr-bg-24308929-2655-4e51-b793-e00e38aa3b39: url('images/ui-icons_777620_256x240.png');}.ui-state-error .ui-icon,.ui-state-error-text .ui-icon{--wpr-bg-df8e6999-3594-4657-866c-ab1443b8aee9: url('images/ui-icons_cc0000_256x240.png');}.ui-button .ui-icon{--wpr-bg-9e538e24-4464-416a-92ac-cf91136ef52d: url('images/ui-icons_777777_256x240.png');}</style>
+</noscript>
+
+
+
+    <div class="productBuy-mobile">
+        <div class="titleDiv">
+            <h2>Garanta sua vaga</h2>
+            <hr>
+        </div>
+
+      
+        <div class="price-section">
+            <p class="price-today">Preço Hoje:</p>
+            <p class="lead">
+                <small>12x</small>
+                <span id="kit-valor-parcela">R$ 9,74</span><br>
+                <small id="kit-preco-avista">ou R$ 97 à vista</small>
+            </p>
+        </div>
+
+        <a href="https://pay.kirvano.com/92f14d00-1291-4d11-a06e-c836aecea422" id="btn_carrinho" class="btn_carrinho-mobile">
+            <div class="btnBuyText">INGRESSAR AGORA</div>
+            <span class="arrow-icon">→</span>
+        </a>
+    </div>
+
+        <div class="price-section">
+        <img style="width:65%;" src="images/juIebULr6dGE.png" alt="Feature Icon">
+    </div>
+
+
+    <script type="rocketlazyloadscript">
+        document.addEventListener('DOMContentLoaded', function() {
+            const potes = document.querySelectorAll('.nav-item');
+            const productPreview = document.getElementById('product-preview');
+            const btnCarrinho = document.getElementById('btn_carrinho');
+            const kitRendimento = document.getElementById('kit-rendimento');
+            const kitValorParcela = document.getElementById('kit-valor-parcela');
+            const kitPrecoAvista = document.getElementById('kit-preco-avista');
+            const economize = document.getElementById('economize');
+            
+            const parametros = window.location.search;
+
+            function updateProduct(pote) {
+                potes.forEach(p => p.classList.remove('active'));
+                pote.classList.add('active');
+
+                productPreview.src = pote.getAttribute('data-image');
+                btnCarrinho.href = pote.getAttribute('data-url') + parametros;
+                kitRendimento.textContent = pote.getAttribute('data-quantity') + ' Dias de Tratamento';
+                kitValorParcela.textContent = 'R$ ' + pote.getAttribute('data-parcela');
+                kitPrecoAvista.textContent = 'ou R$ ' + pote.getAttribute('data-avista') + ' à vista';
+
+                const economiaValue = pote.getAttribute('data-economia');
+                if (economiaValue) {
+                    economize.textContent = 'Economize R$ ' + economiaValue;
+                    economize.style.visibility = 'visible';
+                } else {
+                    economize.style.visibility = 'hidden';
+                }
+            }
+
+            potes.forEach(pote => {
+                pote.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    updateProduct(this);
+                });
+            });
+
+            const potePadrao = document.getElementById('pote-3');
+            updateProduct(potePadrao);
+        });
+    </script>
+
+        </div>
+</section>		</div>
+				</div>
+				</div>
+					</div>
+				</div>
+		<div class="elementor-element elementor-element-13ce2b4 e-flex e-con-boxed e-con e-parent" data-id="13ce2b4" data-element_type="container" data-settings="{" background_background":"classic"}"="">
+					<div class="e-con-inner">
+		<div class="elementor-element elementor-element-dcf6547 esconde e-con-full e-flex e-con e-child" data-id="dcf6547" data-element_type="container" data-settings="{" background_background":"classic"}"="">
+		<div class="elementor-element elementor-element-b32ca1a e-con-full e-flex e-con e-child" data-id="b32ca1a" data-element_type="container">
+				<div class="elementor-element elementor-element-b87fe5f elementor-widget elementor-widget-spacer" data-id="b87fe5f" data-element_type="widget" data-widget_type="spacer.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-spacer">
+			<div class="elementor-spacer-inner"></div>
+		</div>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-6bec9ac elementor-widget elementor-widget-heading" data-id="6bec9ac" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default">Casos reais de transformação</h2>		</div>
+				</div>
+				<div class="elementor-element elementor-element-c3d1c42 elementor-widget-divider--view-line elementor-widget elementor-widget-divider" data-id="c3d1c42" data-element_type="widget" data-widget_type="divider.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-divider">
+			<span class="elementor-divider-separator">
+						</span>
+		</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-943f887 e-con-full e-flex e-con e-child" data-id="943f887" data-element_type="container">
+				<div class="elementor-element elementor-element-7869e45 elementor-widget elementor-widget-image" data-id="7869e45" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+                    <img decoding="async" width="606" height="499" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20606%20499'%3E%3C/svg%3E" class="attachment-large size-large wp-image-648" alt="" data-lazy-srcset="images/depoimento-2.2.webp 606w, images/depoimento-2.2-300x247.webp 300w" data-lazy-sizes="(max-width: 606px) 100vw, 606px" data-lazy-src="images/depoimento-2.2.webp"><noscript><img decoding="async" width="606" height="499" src="images/depoimento-2.2.webp" class="attachment-large size-large wp-image-648" alt="" srcset="images/depoimento-2.2.webp 606w, images/depoimento-2.2-300x247.webp 300w" sizes="(max-width: 606px) 100vw, 606px" /></noscript>													</div>
+				</div>
+				<div class="elementor-element elementor-element-5218e37 elementor-widget elementor-widget-heading" data-id="5218e37" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			        <h2 class="elementor-heading-title elementor-size-default" style="text-align: center;">Eduardo, Porto Alegre</h2>		</div>
+				</div>
+				
+				</div>
+				<div class="elementor-element elementor-element-40ddf74 elementor-widget-mobile__width-auto elementor-widget elementor-widget-text-editor" data-id="40ddf74" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container" style="text-align: center;">
+							<p>“Sempre tive medo de ser ‘o caso que não funciona’. Já achava que era genética ou falta de sorte mesmo. Mas resolvi arriscar com o Tônico do Bicarbonato, afinal, tinha garantia de 365 dias. Pra minha surpresa, no primeiro dia já vi uma diferença no comprimento e, principalmente, nas minhas ereções. Hoje, com 2 meses de uso, posso dizer que o resultado superou minhas expectativas. Não importa a sua idade, funciona sim! Só me arrependo de não ter começado antes.”</p>						</div>
+				</div>
+				<div class="elementor-element elementor-element-947878c elementor-widget-divider--view-line elementor-widget elementor-widget-divider" data-id="947878c" data-element_type="widget" data-widget_type="divider.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-divider">
+			<span class="elementor-divider-separator">
+						</span>
+		</div>
+				</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-b1fe46c e-con-full e-flex e-con e-child" data-id="b1fe46c" data-element_type="container">
+				<div class="elementor-element elementor-element-566a3ce elementor-widget elementor-widget-image" data-id="566a3ce" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+                    <img decoding="async" width="606" height="499" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20606%20499'%3E%3C/svg%3E" class="attachment-large size-large wp-image-650" alt="" data-lazy-srcset="images/depoimento-1.webp 606w, images/depoimento-1-300x247.webp 300w" data-lazy-sizes="(max-width: 606px) 100vw, 606px" data-lazy-src="images/depoimento-1.webp"><noscript><img loading="lazy" decoding="async" width="606" height="499" src="images/depoimento-1.webp" class="attachment-large size-large wp-image-650" alt="" srcset="images/depoimento-1.webp 606w, images/depoimento-1-300x247.webp 300w" sizes="(max-width: 606px) 100vw, 606px" /></noscript>													</div>
+				</div>
+				<div class="elementor-element elementor-element-178e01e elementor-widget elementor-widget-heading" data-id="178e01e" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default" style="text-align: center;">Lucas, São Paulo</h2>		</div>
+				</div>
+				<div class="elementor-element elementor-element-af5c39d elementor-widget-mobile__width-inherit elementor-widget elementor-widget-image" data-id="af5c39d" data-element_type="widget" data-widget_type="image.default">
+				
+				</div>
+				<div class="elementor-element elementor-element-f122d09 elementor-widget-mobile__width-auto elementor-widget elementor-widget-text-editor" data-id="f122d09" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container" style="text-align: center;">
+							<p>“Eu era cético, não vou mentir. Já tinha testado outras coisas por aí, prometiam milagres e só joguei dinheiro fora. Mas o Tônico do Bicarbonato foi diferente. Em 3 dias, comecei a notar mudanças no tamanho e, principalmente, na firmeza das ereções. Hoje, depois de 2 semanas, me olho no espelho e vejo outro homem. Funciona de verdade, e o melhor: não tem segredo, é só seguir o tratamento. Não acreditava, agora recomendo pra todo mundo!”</p>						</div>
+				</div>
+				<div class="elementor-element elementor-element-a6535ff elementor-widget-divider--view-line elementor-widget elementor-widget-divider" data-id="a6535ff" data-element_type="widget" data-widget_type="divider.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-divider">
+			<span class="elementor-divider-separator">
+						</span>
+		</div>
+				</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-26441ee e-con-full e-flex e-con e-child" data-id="26441ee" data-element_type="container">
+				<div class="elementor-element elementor-element-34a3656 elementor-widget elementor-widget-image" data-id="34a3656" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+													<img decoding="async" width="606" height="499" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20606%20499'%3E%3C/svg%3E" class="attachment-large size-large wp-image-651" alt="" data-lazy-srcset="images/depoimento-3.webp 606w, images/depoimento-3-300x247.webp 300w" data-lazy-sizes="(max-width: 606px) 100vw, 606px" data-lazy-src="images/depoimento-3.webp"><noscript><img loading="lazy" decoding="async" width="606" height="499" src="images/depoimento-3.webp" class="attachment-large size-large wp-image-651" alt="" srcset="images/depoimento-3.webp 606w, images/depoimento-3-300x247.webp 300w" sizes="(max-width: 606px) 100vw, 606px" /></noscript>													</div>
+				</div>
+				<div class="elementor-element elementor-element-b8147d5 elementor-widget elementor-widget-heading" data-id="b8147d5" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default" style="text-align: center;">Renato, Belo Horizonte</h2>		</div>
+				</div>
+				
+				</div>
+				<div class="elementor-element elementor-element-3c53886 elementor-widget-mobile__width-auto elementor-widget elementor-widget-text-editor" data-id="3c53886" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container" style="text-align: center;">
+							<p>“Também pensei que podia ser golpe. Infelizmente tem muita enganação por aí. Mas quando comprei o App e tive acesso ao Tônico, fiquei surpreso: recebi minha receita personalizada em 3 minutos, o suporte me deu todas as informações e, principalmente, o Tônico funcionou. Em menos de 1 semana, eu e minha esposa já notamos a diferença. Não é só o tamanho, mas a confiança na cama que mudou. Hoje, me sinto outro homem. O Dr. Carlos realmente entrega o que promete.”</p>						</div>
+				</div>
+				<div class="elementor-element elementor-element-dc951aa elementor-widget-divider--view-line elementor-widget elementor-widget-divider" data-id="dc951aa" data-element_type="widget" data-widget_type="divider.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-divider">
+			<span class="elementor-divider-separator">
+						</span>
+		</div>
+				</div>
+				</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-5197436 e-con-full e-flex e-con e-child" data-id="5197436" data-element_type="container">
+		<div class="elementor-element elementor-element-6c2dffc e-con-full e-flex e-con e-child" data-id="6c2dffc" data-element_type="container" data-settings="{" background_background":"classic"}"="">
+				<div class="elementor-element elementor-element-969a855 elementor-widget elementor-widget-image" data-id="969a855" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+					<img decoding="async" width="300" height="300" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20500%20500'%3E%3C/svg%3E" class="attachment-large size-large wp-image-652" alt="" data-lazy-srcset="images/garantia.webp 500w, images/garantia-300x300.webp 300w, images/garantia-150x150.webp 150w" data-lazy-sizes="(max-width: 500px) 100vw, 500px" data-lazy-src="images/garantia.webp"><noscript><img loading="lazy" decoding="async" width="500" height="500" src="images/garantia.webp" class="attachment-large size-large wp-image-652" alt="" srcset="images/garantia.webp 500w, images/garantia-300x300.webp 300w, images/garantia-150x150.webp 150w" sizes="(max-width: 500px) 100vw, 500px" /></noscript>													</div>
+				</div>
+				<div class="elementor-element elementor-element-ca93aa6 elementor-widget elementor-widget-heading" data-id="ca93aa6" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default" style="text-align: center;">Garantia de Satisfação 365 dias</h2>		</div>
+				</div>
+				<div class="elementor-element elementor-element-22fe7ef elementor-widget elementor-widget-text-editor" data-id="22fe7ef" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container" style="text-align: center; color: #6a0707; padding: 20px;">
+					<p>Acreditamos tanto em nossos produtos que, oferecemos uma Garantia de Satisfação. Se você não estiver satisfeito com sua compra por qualquer motivo, em até 365 dias, devolvemos o valor investido no produto, integralmente. </p>						</div>
+				</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-c0191ac e-con-full e-flex e-con e-child" data-id="c0191ac" data-element_type="container">
+				<div class="elementor-element elementor-element-b056432 elementor-widget elementor-widget-html" data-id="b056432" data-element_type="widget" data-widget_type="html.default">
+				<div class="elementor-widget-container">
+			
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Sora', sans-serif;
+        }
+
+        .faq-section {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .titleDiv {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .titleDiv h2 {
+            color: ##ff0000;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .titleDiv hr {
+            border: none;
+            height: 3px;
+            background: #d33617;
+            width: 70px;
+            margin: 0 auto;
+        }
+
+        .faq-container {
+            margin-top: 20px;
+        }
+
+        .faq-item {
+            background: #f8f8f8;
+            border: 1px solid #e6e7e7;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: transparent;
+            border: none;
+            width: 100%;
+            text-align: left;
+            font-size: 16px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        .faq-question:hover {
+            color: #4a0d08;
+            background-color: #fc1000;
+        }
+
+        .faq-question.active {
+            color: #000;
+            font-weight: 700;
+        }
+
+        .arrow {
+            width: 20px;
+            height: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .active .arrow {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            background: #fff;
+            padding: 0 20px;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #606161;
+        }
+
+        .faq-answer.active {
+            max-height: 500px;
+            padding: 20px;
+        }
+
+        @media (max-width: 480px) {
+            .faq-section {
+                padding: 15px;
+            }
+
+            .titleDiv h2 {
+                font-size: 24px;
+            }
+
+            .faq-question {
+                font-size: 14px;
+                padding: 15px;
+            }
+
+            .faq-answer {
+                font-size: 14px;
+            }
+        }
+    </style>
+<style id="wpr-lazyload-bg-container"></style><style id="wpr-lazyload-bg-exclusion"></style>
+<noscript>
+<style id="wpr-lazyload-bg-nostyle">.ui-icon,.ui-widget-content .ui-icon{--wpr-bg-983aa3ea-a258-460e-ab8b-9dc708559007: url('images/ui-icons_444444_256x240.png');}.ui-widget-header .ui-icon{--wpr-bg-80e81743-c90e-4d15-b8ba-53bbb721eefe: url('images/ui-icons_444444_256x240.png');}.ui-state-hover .ui-icon,.ui-state-focus .ui-icon,.ui-button:hover .ui-icon,.ui-button:focus .ui-icon{--wpr-bg-a3f00cb7-0b18-465e-b473-94f9f97decf1: url('images/ui-icons_555555_256x240.png');}.ui-state-active .ui-icon,.ui-button:active .ui-icon{--wpr-bg-a2a1bb7d-d325-4475-b27e-a076440fe4b6: url('images/ui-icons_ffffff_256x240.png');}.ui-state-highlight .ui-icon,.ui-button .ui-state-highlight.ui-icon{--wpr-bg-24308929-2655-4e51-b793-e00e38aa3b39: url('images/ui-icons_777620_256x240.png');}.ui-state-error .ui-icon,.ui-state-error-text .ui-icon{--wpr-bg-df8e6999-3594-4657-866c-ab1443b8aee9: url('images/ui-icons_cc0000_256x240.png');}.ui-button .ui-icon{--wpr-bg-9e538e24-4464-416a-92ac-cf91136ef52d: url('images/ui-icons_777777_256x240.png');}</style>
+</noscript>
+
+
+   
+
+		</div>
+				</div>
+				</div>
+				</div>
+					</div>
+				</div>
+		<div class="elementor-element elementor-element-81f7ef5 e-flex e-con-boxed e-con e-parent" data-id="81f7ef5" data-element_type="container" data-settings="{" ":"classic"}"="">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-8e09d9e elementor-widget elementor-widget-html" data-id="8e09d9e" data-element_type="widget" data-widget_type="html.default">
+				<div class="elementor-widget-container">
+			<style>
+  .custom-footer {
+    background-color: #111827;
+    color: #D1D5DB;
+    font-family: inherit;
+    padding: 20px;
+  }
+
+  .footer-container {
+    background-color: #111827;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 8px 16px;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 32px;
+  }
+
+  @media (min-width: 768px) {
+    .footer-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .footer-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  .footer-section {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .footer-logo {
+    height: 48px;
+    width: auto;
+  }
+
+  .footer-heading {
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0;
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #D1D5DB;
+    font-size: 14px;
+  }
+
+  .contact-icon {
+    color: #EF4444; /* Changed from green to red */
+    flex-shrink: 0;
+  }
+
+  .quick-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .quick-links a {
+    color: #D1D5DB;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    transition: color 0.2s;
+  }
+
+  .quick-links a:hover {
+    color: #EF4444; /* Changed from green to red */
+  }
+
+  .payment-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+  }
+
+  .payment-item {
+    background-color: #1F2937;
+    padding: 8px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s;
+  }
+
+  .payment-item:hover {
+    background-color: #374151;
+  }
+
+  .security-badge {
+    background-color: #1F2937;
+    padding: 16px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .security-badge-text {
+    color: white;
+    font-size: 14px;
+    margin: 0;
+  }
+
+  .security-badge-subtext {
+    color: #9CA3AF;
+    font-size: 12px;
+    margin: 0;
+  }
+
+  .whatsapp-button {
+    background-color: #22C55E; /* Changed from green to red */
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    font-weight: 500;
+    transition: background-color 0.2s;
+    box-shadow: 0 4px 6px -1px rgba(220, 38, 38, 0.1); /* Updated shadow color */
+  }
+
+  .whatsapp-button:hover {
+    background-color: #16A34A; /* Darker red on hover */
+  }
+
+  .business-hours {
+    background-color: #1F2937;
+    padding: 16px;
+    border-radius: 8px;
+  }
+
+  .business-hours p {
+    margin: 0;
+  }
+
+  .hours-label {
+    color: #9CA3AF;
+    font-size: 14px;
+  }
+
+  .hours-text {
+    color: white;
+    margin-top: 4px;
+  }
+
+  .footer-bottom {
+    border-top: 1px solid #1F2937;
+    padding: 24px 16px;
+  }
+
+  .bottom-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+  }
+
+  @media (min-width: 768px) {
+    .bottom-container {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  .copyright {
+    color: #6B7280;
+    font-size: 14px;
+    margin: 0;
+  }
+
+  .bottom-links {
+    display: flex;
+    gap: 16px;
+  }
+
+  .bottom-links a {
+    color: #6B7280;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.2s;
+  }
+
+  .bottom-links a:hover {
+    color: #EF4444; /* Changed from green to red */
+  }
+</style>
+
+<footer class="custom-footer">
+  <div class="footer-container">
+    <div class="footer-grid">
+  
+
+      <!-- Payment Methods Section -->
+      <div class="footer-section">
+        <h3 class="footer-heading">Formas de Pagamento</h3>
+        <div class="payment-grid">
+          <!-- Repeat 8 times -->
+          <div class="payment-item">
+            <i class="fas fa-credit-card" style="color: #9CA3AF;"></i>
+          </div>
+          
+    <!-- Pix -->
+        <div class="payment-item">
+            <span class="pix-icon">PIX</span>
+        </div>
+          
+    <!-- Visa -->
+        <div class="payment-item">
+            <i class="fab fa-cc-visa payment-icon"></i>
+        </div>
+          
+    <!-- Mastercard -->
+            <div class="payment-item">
+            <i class="fab fa-cc-mastercard payment-icon"></i>
+        </div>
+          
+          
+          <!-- ... -->
+        </div>
+        <div class="security-badge">
+          <i class="fas fa-shield-alt contact-icon"></i>
+          <div>
+            <p class="security-badge-text">Site 100% Seguro</p>
+            <p class="security-badge-subtext">Seus dados estão protegidos</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact Section -->
+      <div class="esconder">
+        <h3 class="footer-heading">Atendimento</h3><br>
+        <div>
+          
+          <div class="business-hours">
+            <p class="hours-label">Horário de Atendimento</p>
+            <p class="hours-text">Seg - Dom: 24h</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Bar -->
+  <div class="footer-bottom">
+    <div class="bottom-container">
+      <p style="text-align:center;" class="copyright">© 2025 Aplicativo Lorde das Ereções. Todos os direitos reservados.</p>
+      <div class="bottom-links">
+        <a href="#">Política de Privacidade</a>
+        <a href="#">Termos de Uso</a>
+      </div>
+    </div>
+  </div>
+</footer>		</div>
+				</div>
+					</div>
+				</div>
+				</div>
+
+
+<script>window.lazyLoadOptions=[{elements_selector:"img[data-lazy-src],.rocket-lazyload",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,callback_loaded:function(element){if(element.tagName==="IFRAME"&&element.dataset.rocketLazyload=="fitvidscompatible"){if(element.classList.contains("lazyloaded")){if(typeof window.jQuery!="undefined"){if(jQuery.fn.fitVids){jQuery(element).parent().fitVids()}}}}}},{elements_selector:".rocket-lazyload",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,}];window.addEventListener('LazyLoad::Initialized',function(e){var lazyLoadInstance=e.detail.instance;if(window.MutationObserver){var observer=new MutationObserver(function(mutations){var image_count=0;var iframe_count=0;var rocketlazy_count=0;mutations.forEach(function(mutation){for(var i=0;i<mutation.addedNodes.length;i++){if(typeof mutation.addedNodes[i].getElementsByTagName!=='function'){continue}
+if(typeof mutation.addedNodes[i].getElementsByClassName!=='function'){continue}
+images=mutation.addedNodes[i].getElementsByTagName('img');is_image=mutation.addedNodes[i].tagName=="IMG";iframes=mutation.addedNodes[i].getElementsByTagName('iframe');is_iframe=mutation.addedNodes[i].tagName=="IFRAME";rocket_lazy=mutation.addedNodes[i].getElementsByClassName('rocket-lazyload');image_count+=images.length;iframe_count+=iframes.length;rocketlazy_count+=rocket_lazy.length;if(is_image){image_count+=1}
+if(is_iframe){iframe_count+=1}}});if(image_count>0||iframe_count>0||rocketlazy_count>0){lazyLoadInstance.update()}});var b=document.getElementsByTagName("body")[0];var config={childList:!0,subtree:!0};observer.observe(b,config)}},!1)</script>
+
+<script data-no-minify="1" async="" src="js/YGc1bDH70NUx.js"></script>	
+<!-- Script para capturar UTMs -->
+    <script src="js/VFy1sKCnqRiT.js"></script>
+    
+
+
+
+</body></html>
