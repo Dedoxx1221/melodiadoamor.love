@@ -1,0 +1,114 @@
+<!DOCTYPE html><html lang="pt-BR"><head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Landing Mobile – Clone</title>
+  <meta name="color-scheme" content="dark light">
+  <style>
+    :root{
+      --bg:#000;
+      --text:#fff;
+      --muted:#A1A1AA;
+      --card:#0b0b0b;
+      --card-border:#27272a;
+      --accent:#ff3b30; /* vermelho mais vivo */
+      --button:#111;
+      --button-hover:#171717;
+      --radius:20px;
+      --shadow:0 10px 30px rgba(0,0,0,.35);
+    }
+
+    html,body{height:100%;}
+    body{
+      margin:0;background:var(--bg);color:var(--text);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      display:grid;place-items:center;
+    }
+
+    .screen{
+      width:min(430px, 100vw);
+      min-height:100svh;
+      padding:22px 18px 28px;
+      box-sizing:border-box;
+      display:flex;flex-direction:column;gap:22px;
+    }
+
+    /* progress */
+    .progress-wrap{height:10px;background:#0f0f10;border-radius:999px;box-shadow:inset 0 0 0 1px #1f1f22;overflow:hidden}
+    .progress{height:100%;width:28%;background:#fff;border-radius:999px;transition:width .6s ease}
+    .progress.is-full{width:100%}
+
+    /* headline */
+    header{ text-align:center; }
+    h1{margin:4px 0 8px;font-weight:800;line-height:1.15;font-size:26px;letter-spacing:.1px;}
+    .hl-strong{color:#fff}
+    .hl-red{color:var(--accent)}
+    .sub{color:#fff;font-size:15px;line-height:1.5;margin-top:12px;opacity:.9}
+
+    /* options */
+    .options{display:flex;flex-direction:column;gap:14px;margin-top:28px}
+    .btn{
+      display:flex;align-items:center;gap:12px;
+      padding:18px 18px; border-radius:22px;
+      background:var(--button);border:1px solid var(--card-border);
+      box-shadow: var(--shadow);
+      cursor:pointer; text-decoration:none; color:var(--text);
+      transition:transform .08s ease, background .2s ease, border-color .2s ease;
+    }
+    .btn:active{transform:scale(.99)}
+    .btn:hover{background:var(--button-hover);border-color:#3f3f46}
+    .emoji{font-size:20px;width:26px;text-align:center}
+    .btn span{font-size:17px;font-weight:700;letter-spacing:.2px}
+
+    /* remove rodapé inlead */
+  </style>
+  <script src="js/latest.js" data-utmify-prevent-subids="" data-utmify-ignore-iframe="" async="" defer=""></script>
+</head>
+<body>
+  <main class="screen" role="main">
+    <div class="progress-wrap" aria-hidden="true"><div class="progress" id="progress"></div></div>
+
+    <header>
+      <h1>
+        Tenha um <span class="hl-strong">pau duro, grande e grosso</span> como uma barra de ferro usando um
+        <span class="hl-red">"Truque com Bicarbonato de Sódio"</span>
+        <span class="hl-strong">100% natural</span>
+      </h1>
+      <p class="sub">Selecione o seu objetivo principal para assistir a apresentação</p>
+    </header>
+
+    <section class="options">
+      <a class="btn" href="https://melodiadoamor.love/segredos" id="cta-tamanho">
+        <span class="emoji" aria-hidden="true">🍆</span>
+        <span>Aumentar o Tamanho do Pênis</span>
+      </a>
+      <a class="btn" href="https://melodiadoamor.love/segredos" id="cta-ed">
+        <span class="emoji" aria-hidden="true">🌶️</span>
+        <span>Curar a Disfunção Erétil</span>
+      </a>
+      <a class="btn" href="https://melodiadoamor.love/segredos" id="cta-ep">
+        <span class="emoji" aria-hidden="true">🧴</span>
+        <span>Tratar a Ejaculação Precoce</span>
+      </a>
+    </section>
+  </main>
+
+  <script>
+    // Links dos CTAs (substitua pelos seus URLs de destino)
+    const DEST = "https://melodiadoamor.love/segredos";
+    const LINKS = { tamanho: DEST, ed: DEST, ep: DEST };
+    const p = document.getElementById('progress');
+    const to = (id, url) => {
+      const el = document.getElementById(id);
+      el.addEventListener('click', (e) => {
+        e.preventDefault();
+        p.classList.add('is-full');
+        setTimeout(()=>{ window.location.href = url; }, 250);
+      });
+    };
+    to('cta-tamanho', LINKS.tamanho);
+    to('cta-ed', LINKS.ed);
+    to('cta-ep', LINKS.ep);
+  </script>
+
+
+</body></html>
