@@ -33,4 +33,16 @@ window.onpopstate = function () {
   window.location.href = checkoutURL;
 };
 </script>
+	<script>
+// URL base do checkout da Hotmart
+const checkoutBase = "https://pay.hotmart.com/A102287064K?off=p2lf4o4l";
+
+// Cria o link com parâmetro para rastrear origem
+const timeoutRedirectURL = checkoutBase + "&src=timeout";
+
+// Tempo em milissegundos (46 minutos = 2760000 ms)
+setTimeout(function () {
+  window.location.href = timeoutRedirectURL;
+}, 2760000);
+</script>
 	</html>
