@@ -1,0 +1,490 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ZapSpy.ai — Setting Up Your Account</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<script src="https://upsell.mundpay.com/script-v2.js" defer async></script>
+
+<style>
+  :root {
+    --green: #00ff6a;
+    --green-dim: #00c450;
+    --red: #ff3b3b;
+    --orange: #ff9500;
+    --bg: #060d10;
+    --bg2: #081218;
+    --card: rgba(8,20,26,0.95);
+    --card-border: rgba(0,255,106,0.12);
+    --muted: #4a6a7a;
+    --glow: 0 0 20px rgba(0,255,106,0.3);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Rajdhani', sans-serif;
+    background: radial-gradient(ellipse at 50% 0%, #0a1f2e 0%, #060d10 60%);
+    color: #e8f8ff;
+    min-height: 100vh;
+    display: flex; align-items: center; justify-content: center;
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  body::before {
+    content: '';
+    position: fixed; inset: 0; z-index: 0;
+    background-image:
+      radial-gradient(circle, rgba(255,255,255,0.06) 1px, transparent 1px),
+      radial-gradient(circle, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 60px 60px, 30px 30px;
+    background-position: 0 0, 15px 15px;
+    pointer-events: none;
+  }
+
+  body::after {
+    content: ''; position: fixed; inset: 0;
+    background: repeating-linear-gradient(to bottom, transparent 0, transparent 3px, rgba(0,0,0,0.04) 3px, rgba(0,0,0,0.04) 4px);
+    pointer-events: none; z-index: 1;
+  }
+
+  .wrapper {
+    position: relative; z-index: 2;
+    width: 100%; max-width: 480px;
+    padding: 2.5rem 1.4rem 3rem;
+    display: flex; flex-direction: column;
+    align-items: center; gap: 0;
+  }
+
+  #screen-loading {
+    width: 100%;
+    display: flex; flex-direction: column;
+    align-items: center; text-align: center;
+    animation: fadeUp 0.6s ease both;
+  }
+
+  .lock-icon-wrap {
+    width: 88px; height: 88px;
+    position: relative; margin-bottom: 1.6rem;
+    animation: iconFloat 3s ease-in-out infinite;
+  }
+  @keyframes iconFloat { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+
+  .lock-icon-bg {
+    width: 88px; height: 88px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(0,196,80,0.15) 0%, transparent 70%);
+    display: flex; align-items: center; justify-content: center;
+    position: relative;
+  }
+  .lock-icon-bg::before {
+    content: ''; position: absolute; inset: -6px; border-radius: 50%;
+    border: 1.5px solid rgba(0,255,106,0.15);
+    animation: rotRing 6s linear infinite;
+  }
+  .lock-icon-bg::after {
+    content: ''; position: absolute; inset: -14px; border-radius: 50%;
+    border: 1px solid rgba(0,255,106,0.07);
+    animation: rotRing 10s linear infinite reverse;
+  }
+  @keyframes rotRing { to { transform: rotate(360deg); } }
+
+  .lock-svg { width: 52px; height: 52px; filter: drop-shadow(0 4px 16px rgba(0,196,80,0.4)); }
+
+  .load-title {
+    font-family: 'Orbitron', monospace;
+    font-size: clamp(1.2rem, 5vw, 1.6rem);
+    font-weight: 900; color: #fff;
+    letter-spacing: 0.03em; margin-bottom: 0.5rem;
+  }
+  .load-sub {
+    font-size: 0.88rem; color: var(--muted);
+    font-weight: 400; margin-bottom: 1.6rem;
+    letter-spacing: 0.02em;
+  }
+
+  .progress-outer {
+    width: 100%; height: 10px;
+    background: rgba(255,255,255,0.06);
+    border-radius: 30px; overflow: hidden;
+    margin-bottom: 0.55rem;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.3);
+  }
+  .progress-inner {
+    height: 100%;
+    background: linear-gradient(90deg, #00c450, #00ff6a, #00e85a);
+    border-radius: 30px; width: 0%;
+    transition: width 0.4s ease;
+    position: relative;
+    box-shadow: 0 0 14px rgba(0,255,106,0.6);
+  }
+  .progress-inner::after {
+    content: ''; position: absolute; right: 0; top: 0; bottom: 0; width: 30px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5));
+    border-radius: 30px;
+    animation: shimBar 1s infinite;
+  }
+  @keyframes shimBar { 0%,100%{opacity:1} 50%{opacity:.4} }
+
+  .progress-pct {
+    font-family: 'Orbitron', monospace;
+    font-size: 0.9rem; font-weight: 700;
+    color: var(--green); text-align: center;
+    margin-bottom: 1.6rem; letter-spacing: 0.08em;
+    text-shadow: var(--glow);
+  }
+
+  .steps-list { width: 100%; display: flex; flex-direction: column; gap: 0.6rem; }
+
+  .step-item {
+    display: flex; align-items: center; gap: 0.9rem;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-left: 3px solid transparent;
+    border-radius: 10px; padding: 0.85rem 1rem;
+    transition: all 0.4s ease;
+  }
+  .step-item.done {
+    background: rgba(0,196,80,0.08);
+    border-color: rgba(0,196,80,0.2);
+    border-left-color: var(--green-dim);
+    box-shadow: 0 0 16px rgba(0,196,80,0.08);
+  }
+  .step-item.active {
+    background: rgba(0,196,80,0.05);
+    border-color: rgba(0,196,80,0.15);
+    border-left-color: var(--green);
+  }
+
+  .step-check-wrap {
+    width: 30px; height: 30px; border-radius: 50%; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    background: rgba(255,255,255,0.05);
+    border: 1.5px solid rgba(255,255,255,0.1);
+    transition: all 0.4s; position: relative;
+  }
+  .step-item.done .step-check-wrap {
+    background: var(--green); border-color: var(--green);
+    box-shadow: 0 0 12px rgba(0,255,106,0.4);
+  }
+  .step-item.active .step-check-wrap {
+    border-color: var(--green);
+    animation: glowPulse 1s infinite;
+  }
+  @keyframes glowPulse { 0%,100%{box-shadow:0 0 6px rgba(0,255,106,.3)} 50%{box-shadow:0 0 18px rgba(0,255,106,.7)} }
+
+  .step-check { display: none; }
+  .step-item.done .step-check { display: block; }
+  .step-check svg { width: 15px; height: 15px; stroke: #000; fill: none; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+
+  .step-spinner {
+    display: none; width: 14px; height: 14px;
+    border: 2px solid rgba(0,255,106,0.2);
+    border-top-color: var(--green);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+  }
+  .step-item.active .step-spinner { display: block; }
+  .step-item.active .step-check { display: none; }
+
+  .step-text {
+    font-size: 0.9rem; font-weight: 500;
+    color: rgba(255,255,255,0.35);
+    letter-spacing: 0.03em; transition: color 0.4s; flex: 1;
+  }
+  .step-item.done .step-text  { color: #c8ffd8; }
+  .step-item.active .step-text { color: #e8ffe8; }
+
+  #screen-upsell {
+    display: none; width: 100%;
+    flex-direction: column; align-items: center; gap: 1rem;
+    animation: fadeUp 0.6s ease both;
+  }
+
+  .offer-card {
+    width: 100%;
+    background: rgba(12,22,18,0.95);
+    border: 1.5px solid rgba(0,255,106,0.3);
+    border-radius: 16px; padding: 1.8rem 1.5rem;
+    text-align: center;
+    box-shadow: 0 0 60px rgba(0,255,106,0.07), inset 0 1px 0 rgba(0,255,106,0.08);
+    position: relative; overflow: hidden;
+  }
+  .offer-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--green), transparent);
+    opacity: 0.5;
+  }
+
+  .offer-card-title {
+    font-family: 'Orbitron', monospace;
+    font-size: clamp(1rem, 4vw, 1.25rem);
+    font-weight: 900; color: #fff;
+    letter-spacing: 0.02em; line-height: 1.3;
+    margin-bottom: 0.85rem;
+  }
+  .offer-card-sub {
+    font-size: 0.88rem; color: rgba(255,255,255,0.45);
+    line-height: 1.65; font-weight: 400;
+    margin-bottom: 1.3rem;
+    max-width: 360px; margin-left: auto; margin-right: auto;
+  }
+  .offer-price-line {
+    font-size: 0.82rem; color: var(--green);
+    font-weight: 600; letter-spacing: 0.04em; margin-bottom: 1rem;
+  }
+  .offer-price-line strong { font-family: 'Orbitron', monospace; font-size: 0.9rem; }
+
+  .offer-cta {
+    width: 100%; padding: 1.1rem 1.5rem;
+    background: linear-gradient(135deg, #00c450, #00ff6a);
+    border: 2.5px dashed rgba(255,255,255,0.5);
+    border-radius: 12px;
+    font-family: 'Orbitron', monospace;
+    font-size: clamp(0.78rem, 3.2vw, 0.92rem);
+    font-weight: 900; letter-spacing: 0.06em;
+    color: #000; cursor: pointer; transition: all 0.3s;
+    box-shadow: 0 4px 30px rgba(0,255,106,0.35);
+    animation: ctaPulse 2.5s infinite;
+    margin-bottom: 0.9rem; line-height: 1.35;
+    position: relative; overflow: hidden;
+  }
+  .offer-cta::before {
+    content: ''; position: absolute; top:-50%; left:-60%;
+    width:50%; height:200%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transform: skewX(-20deg); animation: shimmer 2.5s infinite;
+  }
+  @keyframes ctaPulse { 0%,100%{box-shadow:0 4px 30px rgba(0,255,106,.35)} 50%{box-shadow:0 6px 50px rgba(0,255,106,.6)} }
+  @keyframes shimmer  { 0%{left:-60%} 100%{left:130%} }
+  .offer-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 40px rgba(0,255,106,.5); }
+  .offer-cta:disabled { opacity: 0.7; transform: none; animation: none; }
+
+  .offer-skip {
+    background: none; border: none;
+    font-size: 0.78rem; color: rgba(255,255,255,0.35);
+    cursor: pointer; text-decoration: underline;
+    text-underline-offset: 3px; font-family: 'Rajdhani', sans-serif;
+    letter-spacing: 0.03em; transition: color 0.2s; padding: 0.2rem;
+  }
+  .offer-skip:hover { color: rgba(255,255,255,0.55); }
+
+  .offer-footer {
+    margin-top: 1.6rem; font-size: 0.72rem;
+    color: rgba(255,255,255,0.2); text-align: center; letter-spacing: 0.04em;
+  }
+  .offer-copy {
+    margin-top: 0.4rem; font-size: 0.68rem;
+    color: rgba(255,255,255,0.12); text-align: center;
+  }
+
+  @keyframes fadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+  @keyframes spin   { to { transform: rotate(360deg); } }
+  @keyframes iconPop { from{transform:scale(0) rotate(-20deg);opacity:0} to{transform:scale(1) rotate(0);opacity:1} }
+</style>
+<script src="js/latest.js" data-utmify-prevent-xcod-sck="" data-utmify-prevent-subids="" async="" defer=""></script>
+<script>
+  window.pixelId = "6a06b18d63011f50b15a3969";
+  var a = document.createElement("script");
+  a.setAttribute("async", "");
+  a.setAttribute("defer", "");
+  a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+  document.head.appendChild(a);
+</script><script async="" defer="" src="js/pixel.js"></script>
+</head>
+<body>
+<div class="wrapper">
+
+  <!-- SCREEN A: LOADING -->
+  <div id="screen-loading">
+
+    <div class="lock-icon-wrap">
+      <div class="lock-icon-bg">
+        <svg class="lock-svg" viewBox="0 0 52 56" fill="none">
+          <rect x="14" y="10" width="24" height="22" rx="12" fill="rgba(0,0,0,0.3)" transform="translate(1,2)"></rect>
+          <rect x="14" y="8" width="24" height="22" rx="12" fill="none" stroke="url(#sg)" stroke-width="5"></rect>
+          <rect x="8" y="26" width="36" height="26" rx="6" fill="rgba(0,0,0,0.25)" transform="translate(1,2)"></rect>
+          <rect x="8" y="24" width="36" height="26" rx="6" fill="url(#bg)"></rect>
+          <rect x="9" y="25" width="34" height="10" rx="5" fill="rgba(255,255,255,0.12)"></rect>
+          <circle cx="26" cy="37" r="5" fill="rgba(0,0,0,0.35)"></circle>
+          <circle cx="26" cy="37" r="3.5" fill="rgba(255,180,0,0.9)"></circle>
+          <rect x="24.5" y="39" width="3" height="5" rx="1" fill="rgba(255,180,0,0.9)"></rect>
+          <circle cx="25.5" cy="37" r="0.8" fill="rgba(255,255,255,0.6)"></circle>
+          <defs>
+            <linearGradient id="sg" x1="14" y1="8" x2="38" y2="30" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#c0a060"></stop>
+              <stop offset="50%" stop-color="#f0c060"></stop>
+              <stop offset="100%" stop-color="#a07020"></stop>
+            </linearGradient>
+            <linearGradient id="bg" x1="8" y1="24" x2="44" y2="50" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#d4a030"></stop>
+              <stop offset="40%" stop-color="#f0c050"></stop>
+              <stop offset="100%" stop-color="#b07820"></stop>
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+    </div>
+
+    <div class="load-title">Setting Up Your Account</div>
+    <div class="load-sub">Please wait while we configure your access...</div>
+
+    <div class="progress-outer" style="width:100%;">
+      <div class="progress-inner" id="prog-fill" style="width: 1%;"></div>
+    </div>
+    <div class="progress-pct" id="prog-pct">1%</div>
+
+    <div class="steps-list">
+      <div class="step-item active" id="st-a">
+        <div class="step-check-wrap">
+          <div class="step-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+          <div class="step-spinner"></div>
+        </div>
+        <span class="step-text">Confirming your payment</span>
+      </div>
+      <div class="step-item" id="st-b">
+        <div class="step-check-wrap">
+          <div class="step-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+          <div class="step-spinner"></div>
+        </div>
+        <span class="step-text">Activating ZapSpy license</span>
+      </div>
+      <div class="step-item" id="st-c">
+        <div class="step-check-wrap">
+          <div class="step-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+          <div class="step-spinner"></div>
+        </div>
+        <span class="step-text">Connecting to secure servers</span>
+      </div>
+      <div class="step-item" id="st-d">
+        <div class="step-check-wrap">
+          <div class="step-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+          <div class="step-spinner"></div>
+        </div>
+        <span class="step-text">Loading monitoring dashboard</span>
+      </div>
+      <div class="step-item" id="st-e">
+        <div class="step-check-wrap">
+          <div class="step-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+          <div class="step-spinner"></div>
+        </div>
+        <span class="step-text">Scanning available services</span>
+      </div>
+    </div>
+
+  </div><!-- /screen-loading -->
+
+  <!-- SCREEN B: UPSELL -->
+  <div id="screen-upsell">
+
+    <div style="display:flex;justify-content:center;margin-bottom:1.4rem;animation:iconPop 0.6s cubic-bezier(0.34,1.56,0.64,1) both;">
+      <div style="width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,#22c55e,#16a34a);display:flex;align-items:center;justify-content:center;box-shadow:0 0 40px rgba(34,197,94,0.4),0 8px 24px rgba(0,0,0,0.4);">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+          <rect x="4" y="4" width="13" height="13" rx="3" fill="#f97316"></rect>
+          <rect x="23" y="4" width="13" height="13" rx="3" fill="#3b82f6"></rect>
+          <rect x="4" y="23" width="13" height="13" rx="3" fill="#a855f7"></rect>
+          <rect x="23" y="23" width="13" height="13" rx="3" fill="#22c55e"></rect>
+        </svg>
+      </div>
+    </div>
+
+    <div style="text-align:center;margin-bottom:2rem;padding:0 0.5rem;">
+      <h1 style="font-family:'Orbitron',monospace;font-size:clamp(1.3rem,5.5vw,1.8rem);font-weight:900;color:#fff;line-height:1.25;letter-spacing:0.01em;margin-bottom:0.85rem;">
+        Exposed: See Every Message<br>They Deleted<br>
+        <span style="color:#fff;font-style:normal;">(Up to 90 Days Back)</span>
+      </h1>
+      <p style="font-size:0.9rem;color:rgba(255,255,255,0.45);line-height:1.6;font-weight:400;max-width:380px;margin:0 auto;">
+        In just 5 minutes, discover deleted texts, photos, and videos they thought disappeared forever. Works on any phone — no technical skills required.
+      </p>
+    </div>
+
+    <div class="offer-card">
+      <div class="offer-card-title">Deleted Messages Keep the Truth</div>
+      <div class="offer-card-sub">Every second counts. Deleted messages contain the answers you need — but once they disappear, they're gone forever. Add this service to your account now.</div>
+      <div class="offer-price-line">Activation fee: <strong>$35</strong></div>
+<div data-mndpay-render="019e7ea3-97b4-710a-b0c3-87b85af09a93"></div>
+    </div>
+
+    <div class="offer-footer">🔒 Secure Payment · 30-Day Guarantee · Instant Access</div>
+    <div class="offer-copy">© 2026 ZapSpy.ai. All rights reserved.</div>
+
+  </div><!-- /screen-upsell -->
+
+</div><!-- /wrapper -->
+
+<script>
+function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
+
+function animatePct(fillEl, pctEl, from, to, duration) {
+  return new Promise(resolve => {
+    const start = performance.now();
+    function frame(now) {
+      const t = Math.min((now - start) / duration, 1);
+      const ease = 1 - Math.pow(1 - t, 3);
+      const val = Math.round(from + (to - from) * ease);
+      fillEl.style.width = val + '%';
+      pctEl.textContent = val + '%';
+      if (t < 1) requestAnimationFrame(frame);
+      else resolve();
+    }
+    requestAnimationFrame(frame);
+  });
+}
+
+const steps = [
+  { id: 'st-a', pct: 20, dur: 1400 },
+  { id: 'st-b', pct: 42, dur: 1300 },
+  { id: 'st-c', pct: 65, dur: 1500 },
+  { id: 'st-d', pct: 82, dur: 1200 },
+  { id: 'st-e', pct: 100, dur: 1600 },
+];
+
+async function runLoading() {
+  const fillEl = document.getElementById('prog-fill');
+  const pctEl  = document.getElementById('prog-pct');
+  let current = 0;
+  await sleep(500);
+  for (const s of steps) {
+    const el = document.getElementById(s.id);
+    el.classList.add('active');
+    await animatePct(fillEl, pctEl, current, s.pct, s.dur);
+    el.classList.remove('active');
+    el.classList.add('done');
+    current = s.pct;
+    await sleep(160);
+  }
+  await sleep(700);
+  const loading = document.getElementById('screen-loading');
+  loading.style.transition = 'opacity 0.45s, transform 0.45s';
+  loading.style.opacity = '0';
+  loading.style.transform = 'translateY(-14px)';
+  await sleep(460);
+  loading.style.display = 'none';
+  document.getElementById('screen-upsell').style.display = 'flex';
+}
+
+runLoading();
+
+function acceptOffer() {
+  const btn = document.getElementById('offer-btn');
+  btn.textContent = 'Processing...';
+  btn.disabled = true;
+  btn.style.background = 'linear-gradient(135deg,#008a38,#00c450)';
+    window.location.href = 'https://go.centerpag.com/PPU38CQBOBG?upsell=true';
+    setTimeout(() => {
+    btn.textContent = '✓ Recovery Service Activated!';
+    btn.style.borderStyle = 'solid';
+  }, 2200);
+}
+
+function skipOffer() {
+  const skip = document.querySelector('.offer-skip');
+  skip.textContent = '→ Accessing basic dashboard...';
+  skip.style.pointerEvents = 'none';
+  setTimeout(function(){ window.location.href = 'https://melodiadoamor.love/up-02'; }, 800);
+}
+</script>
+
+
+
+</body></html>
