@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thank You — App Instructions</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg: #05070a;
+      --card: rgba(12, 18, 28, 0.92);
+      --green: #55d85a;
+      --green-dark: #32b83a;
+      --red: #e92929;
+      --text: #f8fafc;
+      --muted: #9ca3af;
+      --line: rgba(255, 255, 255, 0.09);
+      --blue: #38bdf8;
+    }
+
+    body {
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at top, rgba(85, 216, 90, 0.14), transparent 35%),
+        radial-gradient(circle at bottom, rgba(56, 189, 248, 0.10), transparent 35%),
+        var(--bg);
+      color: var(--text);
+      font-family: 'Rajdhani', Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      padding: 28px 14px;
+    }
+
+    .page {
+      width: 100%;
+      max-width: 760px;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 28px 18px 20px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border: 1px solid rgba(85, 216, 90, 0.35);
+      border-radius: 999px;
+      color: var(--green);
+      background: rgba(85, 216, 90, 0.08);
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-family: 'Orbitron', Arial, sans-serif;
+      font-size: clamp(30px, 7vw, 48px);
+      line-height: 1.1;
+      margin-bottom: 14px;
+      letter-spacing: -1px;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      font-size: 20px;
+      line-height: 1.45;
+      max-width: 620px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+      backdrop-filter: blur(14px);
+      margin-top: 22px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--green), transparent);
+      opacity: 0.8;
+    }
+
+    .access-box {
+      background: rgba(85, 216, 90, 0.08);
+      border: 1px solid rgba(85, 216, 90, 0.22);
+      border-radius: 18px;
+      padding: 22px;
+      text-align: center;
+      margin-bottom: 22px;
+    }
+
+    .access-box h2 {
+      font-family: 'Orbitron', Arial, sans-serif;
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+
+    .access-box p {
+      color: #d1d5db;
+      font-size: 18px;
+      line-height: 1.45;
+      margin-bottom: 18px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      min-height: 62px;
+      padding: 16px 20px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, var(--green), var(--green-dark));
+      color: #041008;
+      text-decoration: none;
+      font-family: 'Orbitron', Arial, sans-serif;
+      font-size: clamp(16px, 4vw, 20px);
+      font-weight: 900;
+      text-align: center;
+      box-shadow: 0 14px 40px rgba(85, 216, 90, 0.25);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 18px 52px rgba(85, 216, 90, 0.35);
+    }
+
+    .notice {
+      display: grid;
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .notice-item {
+      display: flex;
+      gap: 12px;
+      padding: 16px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.035);
+      border: 1px solid var(--line);
+    }
+
+    .notice-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: rgba(56, 189, 248, 0.12);
+      color: var(--blue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 17px;
+    }
+
+    .notice-item p {
+      color: #d1d5db;
+      font-size: 17px;
+      line-height: 1.45;
+    }
+
+    .support {
+      margin-top: 22px;
+      padding: 18px;
+      border-radius: 18px;
+      background: rgba(56, 189, 248, 0.08);
+      border: 1px solid rgba(56, 189, 248, 0.20);
+      text-align: center;
+    }
+
+    .support p {
+      color: #dbeafe;
+      font-size: 18px;
+      line-height: 1.45;
+    }
+
+    .support a {
+      color: #7dd3fc;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .terms {
+      margin-top: 22px;
+      padding-top: 22px;
+      border-top: 1px solid var(--line);
+    }
+
+    .terms h2 {
+      font-family: 'Orbitron', Arial, sans-serif;
+      font-size: 24px;
+      margin-bottom: 14px;
+    }
+
+    .terms p {
+      color: #cbd5e1;
+      font-size: 17px;
+      line-height: 1.58;
+      margin-bottom: 14px;
+    }
+
+    .term-list {
+      display: grid;
+      gap: 12px;
+      margin: 18px 0;
+    }
+
+    .term {
+      padding: 16px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.035);
+      border: 1px solid var(--line);
+      color: #d1d5db;
+      font-size: 17px;
+      line-height: 1.5;
+    }
+
+    .term strong {
+      color: #ffffff;
+    }
+
+    .final {
+      margin-top: 18px;
+      padding: 18px;
+      border-radius: 18px;
+      background: rgba(233, 41, 41, 0.08);
+      border: 1px solid rgba(233, 41, 41, 0.22);
+      color: #fecaca;
+      text-align: center;
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 1.4;
+    }
+
+    .footer {
+      text-align: center;
+      color: rgba(255, 255, 255, 0.35);
+      font-size: 14px;
+      margin-top: 20px;
+      padding-bottom: 20px;
+    }
+
+    @media (max-width: 520px) {
+      .card {
+        padding: 18px;
+        border-radius: 20px;
+      }
+
+      .access-box {
+        padding: 18px;
+      }
+
+      .notice-item {
+        padding: 14px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="page">
+    <section class="hero">
+      <div class="badge">✅ Purchase Confirmed</div>
+
+      <h1>Thank You!</h1>
+
+      <p class="subtitle">
+        Your access is ready. Follow the instructions below to activate your app correctly.
+      </p>
+    </section>
+
+    <section class="card">
+      <div class="access-box">
+        <h2>Access Your App Instructions</h2>
+
+        <p>
+          Your step-by-step activation guide is ready. Open the secure instructions below to complete your registration and access the app correctly.
+        </p>
+
+        <a class="btn" href="/entregavel-x-monitor.pdf" target="_blank" rel="noopener">
+          🔐 Open Secure App Instructions
+        </a>
+      </div>
+
+      <div class="notice">
+        <div class="notice-item">
+          <div class="notice-icon">📌</div>
+          <p>
+            If you haven't received the registration link, open the instructions above and click the pinned link inside the guide.
+          </p>
+        </div>
+
+        <div class="notice-item">
+          <div class="notice-icon">✉️</div>
+          <p>
+            When you click the link, register using the same email address you used for your purchase.
+          </p>
+        </div>
+
+        <div class="notice-item">
+          <div class="notice-icon">⚠️</div>
+          <p>
+            Do not share the link, as we have many people accessing it and we cannot overload our server.
+          </p>
+        </div>
+
+        <div class="notice-item">
+          <div class="notice-icon">🛟</div>
+          <p>
+            If you need help, send a message to our support email and we will assist you.
+          </p>
+        </div>
+      </div>
+
+      <div class="support">
+        <p>
+          Support email:<br>
+          <a href="mailto:suportedigital30@gmail.com">suportedigital30@gmail.com</a>
+        </p>
+      </div>
+
+      <div class="terms">
+        <h2>Terms of Use and Disclaimer</h2>
+
+        <p>
+          The use of this application is the sole responsibility of the user. Our company develops this technology with the aim of offering security and privacy, without encouraging any illegal or unethical activity.
+        </p>
+
+        <p>
+          By purchasing and using the application, the user agrees that:
+        </p>
+
+        <div class="term-list">
+          <div class="term">
+            ✅ <strong>Responsible Use:</strong> The software must be used only within the limits of legality and ethics, respecting the laws in force in the country in which it is being operated.
+          </div>
+
+          <div class="term">
+            ✅ <strong>Disclaimer:</strong> We are not responsible for any misuse of the application, including, but not limited to, unauthorized monitoring, invasion of privacy, or any action that violates the rights of third parties.
+          </div>
+
+          <div class="term">
+            ✅ <strong>Legal Purpose:</strong> The user is entirely responsible for the consequences of their use. Any use that infringes legal norms or violates the privacy of third parties will be the sole responsibility of the user, exempting the company from any legal implications.
+          </div>
+
+          <div class="term">
+            ✅ <strong>Updates and Changes:</strong> We reserve the right to modify, suspend, or discontinue any functionality of the application at any time, without prior notice.
+          </div>
+        </div>
+
+        <p>
+          By continuing to use the application, you declare that you are aware of and agree to these terms. If you have any questions, consult a legal expert before proceeding with the installation and use of the software.
+        </p>
+
+        <div class="final">
+          🔒 Your security and responsibility are in your hands.
+        </div>
+      </div>
+    </section>
+
+    <div class="footer">
+      © 2026. All rights reserved.
+    </div>
+  </main>
+</body>
+</html>
