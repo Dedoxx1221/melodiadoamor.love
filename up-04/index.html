@@ -1,0 +1,826 @@
+<!DOCTYPE html><html lang="en"><head>
+<script src="https://upsell.mundpay.com/script-v2.js" defer async></script>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ZapSpy.ai — Upsell 04 (EN)</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green: #00ff6a;
+    --green-dim: #00c450;
+    --red: #ff3b3b;
+    --orange: #ff9500;
+    --yellow: #f59e0b;
+    --purple: #a855f7;
+    --purple-dim: #7c3aed;
+    --blue: #3b82f6;
+    --muted: #6a5a8a;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Rajdhani', sans-serif;
+    background: radial-gradient(ellipse at 50% 0%, #1a0a35 0%, #120820 40%, #0d0618 100%);
+    color: #e8f0ff;
+    min-height: 100vh;
+    display: flex; align-items: flex-start; justify-content: center;
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  body::before {
+    content: '';
+    position: fixed; inset: 0; z-index: 0;
+    background-image:
+      radial-gradient(circle, rgba(168,85,247,0.07) 1px, transparent 1px),
+      radial-gradient(circle, rgba(255,255,255,0.02) 1px, transparent 1px);
+    background-size: 60px 60px, 30px 30px;
+    background-position: 0 0, 15px 15px;
+    pointer-events: none;
+  }
+
+  body::after {
+    content: ''; position: fixed; inset: 0;
+    background: repeating-linear-gradient(to bottom, transparent 0, transparent 3px, rgba(0,0,0,0.05) 3px, rgba(0,0,0,0.05) 4px);
+    pointer-events: none; z-index: 1;
+  }
+
+  .wrapper {
+    position: relative; z-index: 2;
+    width: 100%; max-width: 500px;
+    padding: 2.5rem 1.4rem 3rem;
+    display: flex; flex-direction: column;
+    align-items: center; gap: 1rem;
+  }
+
+  @keyframes fadeUp   { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+  @keyframes spin     { to { transform: rotate(360deg); } }
+  @keyframes pulse    { 0%,100%{opacity:1} 50%{opacity:0.5} }
+  @keyframes shimmer  { 0%{left:-60%} 100%{left:150%} }
+  @keyframes ctaPulse { 0%,100%{box-shadow:0 4px 30px rgba(168,85,247,.4)} 50%{box-shadow:0 6px 55px rgba(168,85,247,.7)} }
+  @keyframes glowPulse{ 0%,100%{box-shadow:0 0 6px rgba(168,85,247,.3)} 50%{box-shadow:0 0 22px rgba(168,85,247,.7)} }
+  @keyframes ghostFloat { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+  @keyframes warnFlash { 0%,100%{opacity:1} 50%{opacity:0.6} }
+
+  /* ══════════════════════════════
+     SCREEN A — STEALTH ACTIVATION
+  ══════════════════════════════ */
+  #screen-stealth {
+    width: 100%;
+    display: flex; flex-direction: column;
+    align-items: center; text-align: center;
+    animation: fadeUp 0.6s ease both;
+  }
+
+  .ghost-icon {
+    font-size: 4rem; margin-bottom: 1.2rem;
+    display: block;
+    animation: ghostFloat 3s ease-in-out infinite;
+    filter: drop-shadow(0 0 20px rgba(168,85,247,0.5));
+  }
+
+  .stealth-title {
+    font-family: 'Orbitron', monospace;
+    font-size: clamp(1.1rem, 4.5vw, 1.5rem);
+    font-weight: 900; color: #fff;
+    letter-spacing: 0.02em; margin-bottom: 0.4rem;
+  }
+  .stealth-sub {
+    font-size: 0.88rem; color: var(--muted);
+    margin-bottom: 1.8rem; letter-spacing: 0.02em;
+    line-height: 1.5;
+  }
+
+  /* Steps card */
+  .stealth-card {
+    width: 100%;
+    background: rgba(20,12,40,0.92);
+    border: 1px solid rgba(168,85,247,0.2);
+    border-radius: 14px; padding: 1.4rem 1.2rem;
+  }
+
+  .step-list { display: flex; flex-direction: column; gap: 0.7rem; margin-bottom: 1.3rem; }
+
+  .step-row {
+    display: flex; align-items: flex-start; gap: 0.85rem;
+    text-align: left;
+  }
+
+  .step-icon-wrap {
+    width: 28px; height: 28px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; margin-top: 1px;
+  }
+  .step-icon-wrap.done {
+    background: var(--green);
+    box-shadow: 0 0 10px rgba(0,255,106,0.4);
+  }
+  .step-icon-wrap.active {
+    background: transparent;
+    border: 2px solid var(--purple);
+    animation: glowPulse 1.2s infinite;
+  }
+  .step-icon-wrap.warn {
+    background: transparent;
+    border: 2px solid rgba(255,255,255,0.15);
+  }
+  .step-icon-wrap svg {
+    width: 13px; height: 13px;
+    stroke: #000; fill: none;
+    stroke-width: 3; stroke-linecap: round; stroke-linejoin: round;
+  }
+  .step-icon-wrap.active svg { stroke: var(--purple); }
+  .step-icon-wrap.active .spin-dot {
+    width: 10px; height: 10px;
+    border: 2px solid rgba(168,85,247,0.2);
+    border-top-color: var(--purple);
+    border-radius: 50%;
+    animation: spin 0.9s linear infinite;
+  }
+
+  .step-text {
+    font-size: 0.9rem; font-weight: 500; line-height: 1.4;
+    padding-top: 3px;
+  }
+  .step-text.done   { color: rgba(200,255,220,0.85); }
+  .step-text.active { color: #e8e0ff; }
+  .step-text.warn   { color: rgba(255,255,255,0.35); }
+  .step-text.warn .warn-label { color: var(--yellow); }
+
+  /* Progress bar */
+  .stealth-bar-outer {
+    width: 100%; height: 6px;
+    background: rgba(255,255,255,0.07);
+    border-radius: 20px; overflow: hidden;
+  }
+  .stealth-bar-inner {
+    height: 100%;
+    background: linear-gradient(90deg, var(--purple-dim), var(--purple));
+    border-radius: 20px; width: 0%;
+    transition: width 0.5s ease;
+    box-shadow: 0 0 12px rgba(168,85,247,0.6);
+    position: relative;
+  }
+  .stealth-bar-inner::after {
+    content: '';
+    position: absolute; right: 0; top: 0; bottom: 0; width: 30px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4));
+    border-radius: 20px;
+    animation: pulse 1.1s infinite;
+  }
+
+  /* ══════════════════════════════
+     SCREEN B — UPSELL
+  ══════════════════════════════ */
+  #screen-upsell {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    animation: fadeUp 0.6s ease both;
+  }
+
+  /* Warning headline */
+  .warn-headline {
+    width: 100%; text-align: center; padding: 0 0.3rem;
+  }
+  .warn-headline h1 {
+    font-family: 'Orbitron', monospace;
+    font-size: clamp(1.1rem, 5vw, 1.55rem);
+    font-weight: 900; color: #fff;
+    line-height: 1.25; letter-spacing: 0.01em;
+    display: flex; align-items: flex-start; justify-content: center;
+    gap: 0.5rem; flex-wrap: wrap;
+  }
+  .warn-headline h1 .warn-ico { font-size: 1.3rem; flex-shrink: 0; }
+
+  /* Without / With blocks */
+  .compare-banner {
+    width: 100%;
+    border-radius: 12px; padding: 1rem 1.1rem;
+    display: flex; align-items: flex-start; gap: 0.7rem;
+    position: relative; overflow: hidden;
+  }
+  .compare-banner.without {
+    background: rgba(35,18,8,0.9);
+    border: 1px solid rgba(245,158,11,0.3);
+    border-left: 3px solid var(--yellow);
+  }
+  .compare-banner.with {
+    background: rgba(15,10,35,0.9);
+    border: 1px solid rgba(168,85,247,0.3);
+    border-left: 3px solid var(--purple);
+  }
+  .cmp-ico { font-size: 1.2rem; flex-shrink: 0; margin-top: 1px; }
+  .cmp-text { font-size: 0.86rem; color: rgba(255,255,255,0.55); line-height: 1.6; }
+  .cmp-text strong { color: rgba(255,255,255,0.85); }
+  .cmp-text strong.grn { color: var(--green); }
+
+  /* Features grid card */
+  .features-card {
+    width: 100%;
+    background: rgba(16,10,32,0.95);
+    border: 1px solid rgba(168,85,247,0.18);
+    border-radius: 14px; padding: 1.4rem 1.2rem;
+  }
+  .card-title {
+    font-family: 'Orbitron', monospace;
+    font-size: 0.95rem; font-weight: 900;
+    color: #fff; text-align: center;
+    margin-bottom: 1.1rem; letter-spacing: 0.02em;
+  }
+  .feat-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 0.7rem;
+  }
+  .feat-box {
+    background: rgba(168,85,247,0.05);
+    border: 1px solid rgba(168,85,247,0.12);
+    border-radius: 10px; padding: 0.9rem 0.85rem;
+  }
+  .feat-box-ico { font-size: 1.4rem; margin-bottom: 0.4rem; display: block; }
+  .feat-box-name {
+    font-size: 0.85rem; font-weight: 700;
+    color: rgba(255,255,255,0.85); margin-bottom: 0.3rem;
+  }
+  .feat-box-desc {
+    font-size: 0.76rem; color: rgba(255,255,255,0.4); line-height: 1.45;
+  }
+
+  /* Without vs With comparison */
+  .vs-card {
+    width: 100%;
+    background: rgba(14,8,30,0.95);
+    border: 1px solid rgba(168,85,247,0.15);
+    border-radius: 14px; padding: 1.3rem 1.2rem;
+  }
+  .vs-cols {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem;
+  }
+  .vs-col {
+    border-radius: 10px; padding: 1rem 0.9rem;
+  }
+  .vs-col.without-col {
+    background: rgba(255,59,59,0.06);
+    border: 1px solid rgba(255,59,59,0.2);
+  }
+  .vs-col.with-col {
+    background: rgba(168,85,247,0.07);
+    border: 1px solid rgba(168,85,247,0.25);
+  }
+  .vs-col-ico { font-size: 1.5rem; margin-bottom: 0.4rem; display: block; }
+  .vs-col-title {
+    font-size: 0.82rem; font-weight: 700;
+    margin-bottom: 0.6rem; color: rgba(255,255,255,0.7);
+  }
+  .vs-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.35rem; }
+  .vs-col ul li {
+    font-size: 0.76rem; color: rgba(255,255,255,0.4);
+    line-height: 1.35; padding-left: 1rem; position: relative;
+  }
+  .vs-col ul li::before { content: '•'; position: absolute; left: 0; color: rgba(255,255,255,0.2); }
+  .vs-col.with-col ul li { color: rgba(200,180,255,0.75); }
+  .vs-col.with-col ul li::before { content: '✓'; color: var(--purple); font-size: 0.7rem; }
+
+  /* Included card */
+  .included-card {
+    width: 100%;
+    background: rgba(14,8,30,0.97);
+    border: 1.5px solid rgba(168,85,247,0.3);
+    border-radius: 14px; padding: 1.4rem 1.2rem;
+    position: relative; overflow: hidden;
+  }
+  .included-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--purple), transparent);
+    opacity: 0.5;
+  }
+  .included-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; margin-bottom: 1rem;
+  }
+  .inc-item {
+    background: rgba(168,85,247,0.05);
+    border: 1px solid rgba(168,85,247,0.12);
+    border-radius: 8px; padding: 0.7rem 0.8rem;
+    display: flex; align-items: flex-start; gap: 0.5rem;
+  }
+  .inc-ico { font-size: 0.9rem; flex-shrink: 0; margin-top: 1px; }
+  .inc-text { font-size: 0.76rem; color: rgba(255,255,255,0.55); line-height: 1.4; }
+  .inc-text strong { color: rgba(255,255,255,0.85); display: block; margin-bottom: 0.1rem; }
+  .included-foot {
+    text-align: center;
+    font-size: 0.82rem; color: rgba(255,255,255,0.35);
+    line-height: 1.5; font-style: italic;
+  }
+  .included-foot strong { color: rgba(255,255,255,0.6); font-style: normal; }
+
+  /* CTA card */
+  .cta-card {
+    width: 100%;
+    background: rgba(14,8,30,0.97);
+    border: 1.5px solid rgba(168,85,247,0.35);
+    border-radius: 16px; padding: 1.8rem 1.5rem;
+    text-align: center;
+    position: relative; overflow: hidden;
+    box-shadow: 0 0 60px rgba(168,85,247,0.07);
+  }
+  .cta-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--purple), transparent);
+    opacity: 0.5;
+  }
+  .cta-title {
+    font-family: 'Orbitron', monospace;
+    font-size: clamp(0.95rem, 4vw, 1.2rem);
+    font-weight: 900; color: #fff;
+    line-height: 1.3; margin-bottom: 0.6rem;
+    letter-spacing: 0.02em;
+  }
+  .cta-desc {
+    font-size: 0.86rem; color: rgba(255,255,255,0.4);
+    line-height: 1.6; margin-bottom: 1rem;
+    max-width: 360px; margin-left: auto; margin-right: auto;
+  }
+  .cta-price {
+    font-size: 0.82rem; color: var(--purple);
+    font-weight: 600; letter-spacing: 0.04em; margin-bottom: 1rem;
+  }
+  .cta-price strong { font-family: 'Orbitron', monospace; font-size: 0.92rem; }
+
+  .offer-cta {
+    width: 100%;
+    padding: 1.15rem 1.5rem;
+    background: linear-gradient(135deg, var(--purple-dim), var(--purple));
+    border: 2.5px dashed rgba(255,255,255,0.4);
+    border-radius: 12px;
+    font-family: 'Orbitron', monospace;
+    font-size: clamp(0.72rem, 3vw, 0.88rem);
+    font-weight: 900; letter-spacing: 0.05em;
+    color: #fff; cursor: pointer;
+    transition: all 0.3s;
+    animation: ctaPulse 2.5s infinite;
+    margin-bottom: 0.9rem;
+    line-height: 1.4;
+    position: relative; overflow: hidden;
+  }
+  .offer-cta::before {
+    content: ''; position: absolute; top: -50%; left: -60%;
+    width: 50%; height: 200%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
+    transform: skewX(-20deg); animation: shimmer 2.5s infinite;
+  }
+  .offer-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 40px rgba(168,85,247,.6); }
+  .offer-cta:disabled { opacity: 0.7; transform: none; animation: none; }
+
+  .offer-skip {
+    background: none; border: none;
+    font-size: 0.78rem; color: rgba(255,255,255,0.3);
+    cursor: pointer; text-decoration: underline;
+    text-underline-offset: 3px;
+    font-family: 'Rajdhani', sans-serif;
+    letter-spacing: 0.03em; transition: color 0.2s; padding: 0.2rem;
+  }
+  .offer-skip:hover { color: rgba(255,255,255,0.5); }
+
+  .offer-footer {
+    margin-top: 1.2rem;
+    font-size: 0.72rem; color: rgba(255,255,255,0.2);
+    text-align: center; letter-spacing: 0.04em;
+  }
+  .offer-copy {
+    margin-top: 0.35rem;
+    font-size: 0.68rem; color: rgba(255,255,255,0.12);
+    text-align: center;
+  }
+  }
+  body,
+div,
+span,
+p,
+input,
+select,
+textarea {
+  font-family: 'Rajdhani', Arial, sans-serif !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+button,
+.offer-cta,
+.cta-title,
+.card-title {
+  font-family: 'Orbitron', Arial, sans-serif !important;
+}
+</style>
+<script src="js/latest.js" data-utmify-prevent-xcod-sck="" data-utmify-prevent-subids="" async="" defer=""></script>
+<script>
+  window.pixelId = "6a06b18d63011f50b15a3969";
+  var a = document.createElement("script");
+  a.setAttribute("async", "");
+  a.setAttribute("defer", "");
+  a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+  document.head.appendChild(a);
+</script><script async="" defer="" src="js/pixel.js"></script>
+</head>
+<body>
+<script>
+(() => {
+  const dict = {
+    "Activando Modo Sigilo...": "Activating Stealth Mode...",
+    "Asegurando tu actividad de monitoreo": "Securing your monitoring activity",
+    "para ser 100% indetectable.": "to be 100% undetectable.",
+    "Aplicando capa de encriptación militar": "Applying military-grade encryption layer",
+    "Enmascarando tu dirección IP e ID de dispositivo": "Masking your IP address and device ID",
+    "Borrando todas las huellas digitales": "Erasing all digital fingerprints",
+    "Activando escudo anti-detección": "Activating anti-detection shield",
+    "ADVERTENCIA": "WARNING",
+    "Vulnerabilidad detectada — tu actividad puede ser visible": "Vulnerability detected — your activity may be visible",
+    "Pueden Ver Que Los Estás Monitoreando": "They May See That You Are Monitoring Them",
+    "Sin la Capa de Invisibilidad, tu actividad de monitoreo deja rastros digitales.": "Without the Invisibility Layer, your monitoring activity leaves digital traces.",
+    "Si revisan el uso de batería, consumo de datos o conexiones activas de su teléfono — lo sabrán.": "If they check battery usage, data consumption, or active connections on their phone — they will know.",
+    "No dejes que meses de recopilación de evidencia se arruinen porque te descubrieron.": "Do not let months of evidence collection be ruined because you were discovered.",
+    "Con la Capa de Invisibilidad:": "With the Invisibility Layer:",
+    "Tu monitoreo se vuelve": "Your monitoring becomes",
+    "Cero rastros en estadísticas de batería, enrutamiento de datos invisible, supresión completa de notificaciones.": "Zero traces in battery statistics, invisible data routing, and complete notification suppression.",
+    "Nunca sabrán que los estás observando.": "They will never know you are watching.",
+    "Características de Protección Sigilo": "Stealth Protection Features",
+    "Tecnología Sin Rastros": "Zero-Trace Technology",
+    "Modo Fantasma": "Ghost Mode",
+    "Escudo Anti-Detección": "Anti-Detection Shield",
+    "Enmascaramiento de Notificaciones": "Notification Masking",
+    "Ocultamiento de IP": "IP Cloaking",
+    "Programación Inteligente": "Smart Scheduling",
+    "Sin vs Con Capa de Invisibilidad": "Without vs With Invisibility Layer",
+    "Sin Capa de Invisibilidad:": "Without Invisibility Layer:",
+    "Con Capa de Invisibilidad:": "With Invisibility Layer:",
+    "Actividad visible en estadísticas de batería": "Activity visible in battery statistics",
+    "Picos de uso de datos detectables": "Detectable data usage spikes",
+    "Riesgo de filtración de notificaciones": "Risk of notification leaks",
+    "Huellas digitales en todas partes": "Digital fingerprints everywhere",
+    "Cero impacto en batería": "Zero battery impact",
+    "Enrutamiento de datos invisible": "Invisible data routing",
+    "Supresión completa de notificaciones": "Complete notification suppression",
+    "Sin rastros en absoluto": "No traces at all",
+    "Qué Incluye la Capa de Invisibilidad:": "What the Invisibility Layer Includes:",
+    "Invisível na bateria, dados e processos": "Invisible in battery, data, and processes",
+    "Operação de fundo completamente invisível": "Completely invisible background operation",
+    "Bloquea todos los intentos de detección": "Blocks all detection attempts",
+    "Sem alertas suspeitos no celular deles": "No suspicious alerts on their phone",
+    "Túneis criptografados, dados não rastreáveis": "Encrypted tunnels, untraceable data",
+    "Pausa automática em janelas de risco": "Automatic pause during risk windows",
+    "No dejes que toda tu recopilación de evidencia se arruine": "Do not let all your evidence collection be ruined",
+    "porque te descubran.": "because you get discovered.",
+    "Un Error y Meses de Evidencia Desaparecen": "One Mistake and Months of Evidence Disappear",
+    "Tu cuenta está configurada para monitoreo. Ahora asegúrate de que nunca lo descubran.": "Your account is set up for monitoring. Now make sure they never discover it.",
+    "La Capa de Invisibilidad es tu protección contra la detección.": "The Invisibility Layer is your protection against detection.",
+    "Tarifa de activación:": "Activation fee:",
+    "Sí, Agregar Capa de Invisibilidad a Mi Cuenta": "Yes, Add Invisibility Layer to My Account",
+    "No gracias, no necesito la capa de invisibilidad": "No thanks, I do not need the invisibility layer",
+    "Pago Seguro": "Secure Payment",
+    "Garantía de 30 Días": "30-Day Guarantee",
+    "Acceso Instantáneo": "Instant Access",
+    "Todos los derechos reservados.": "All rights reserved.",
+    "Activando...": "Activating...",
+    "✓ ¡Capa de Invisibilidad Activada!": "✓ Invisibility Layer Activated!",
+    "→ Continuando sin protección sigilo...": "→ Continuing without stealth protection..."
+  };
+
+  function translate() {
+    document.documentElement.lang = "en";
+
+    const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+    let node;
+
+    while ((node = walker.nextNode())) {
+      let text = node.nodeValue;
+      let newText = text;
+
+      for (const key in dict) {
+        if (newText.includes(key)) {
+          newText = newText.replaceAll(key, dict[key]);
+        }
+      }
+
+      if (newText !== text) {
+        node.nodeValue = newText;
+      }
+    }
+  }
+
+  document.addEventListener("DOMContentLoaded", translate);
+  window.addEventListener("load", translate);
+
+  setTimeout(translate, 500);
+  setTimeout(translate, 2500);
+  setTimeout(translate, 6500);
+})();
+</script>
+<div class="wrapper">
+
+  <!-- ══ SCREEN A: STEALTH ACTIVATION ══ -->
+  <div id="screen-stealth">
+
+    <span class="ghost-icon">👻</span>
+
+    <div class="stealth-title">Activando Modo Sigilo...</div>
+    <div class="stealth-sub">Asegurando tu actividad de monitoreo<br>para ser 100% indetectable.</div>
+
+    <div class="stealth-card">
+      <div class="step-list">
+
+        <div class="step-row">
+          <div class="step-icon-wrap active" id="si-a"><div class="spin-dot"></div></div>
+          <span class="step-text active" id="st-a">Aplicando capa de encriptación militar</span>
+        </div>
+
+        <div class="step-row">
+          <div class="step-icon-wrap" id="si-b"></div>
+          <span class="step-text" id="st-b">Enmascarando tu dirección IP e ID de dispositivo</span>
+        </div>
+
+        <div class="step-row">
+          <div class="step-icon-wrap" id="si-c"></div>
+          <span class="step-text" id="st-c">Borrando todas las huellas digitales</span>
+        </div>
+
+        <div class="step-row">
+          <div class="step-icon-wrap" id="si-d"></div>
+          <span class="step-text" id="st-d">Activando escudo anti-detección</span>
+        </div>
+
+        <div class="step-row">
+          <div class="step-icon-wrap" id="si-e"></div>
+          <span class="step-text" id="st-e">
+            <span class="warn-label">⚠ ADVERTENCIA:</span> Vulnerabilidad detectada — tu actividad puede ser visible
+          </span>
+        </div>
+
+      </div>
+
+      <div class="stealth-bar-outer">
+        <div class="stealth-bar-inner" id="stealth-bar" style="width: 6.11555%;"></div>
+      </div>
+    </div>
+
+  </div><!-- /screen-stealth -->
+
+  <!-- ══ SCREEN B: UPSELL ══ -->
+  <div id="screen-upsell">
+
+    <!-- Warning headline -->
+    <div class="warn-headline">
+      <h1><span class="warn-ico">⚠️</span> ADVERTENCIA: Pueden Ver Que Los Estás Monitoreando</h1>
+    </div>
+
+    <!-- Without block -->
+    <div class="compare-banner without">
+      <span class="cmp-ico">😨</span>
+      <div class="cmp-text">
+        <strong>Sin la Capa de Invisibilidad, tu actividad de monitoreo deja rastros digitales.</strong>
+        Si revisan el uso de batería, consumo de datos o conexiones activas de su teléfono — lo sabrán.
+        No dejes que meses de recopilación de evidencia se arruinen porque te descubrieron.
+      </div>
+    </div>
+
+    <!-- With block -->
+    <div class="compare-banner with">
+      <span class="cmp-ico">👻</span>
+      <div class="cmp-text">
+        <strong>Con la Capa de Invisibilidad:</strong> Tu monitoreo se vuelve
+        <strong class="grn">100% undetectable.</strong>
+        Cero rastros en estadísticas de batería, enrutamiento de datos invisible, supresión completa de notificaciones.
+        Nunca sabrán que los estás observando.
+      </div>
+    </div>
+
+    <!-- Stealth features grid -->
+    <div class="features-card">
+      <div class="card-title">👻 Características de Protección Sigilo</div>
+      <div class="feat-grid">
+        <div class="feat-box">
+          <span class="feat-box-ico">🛡️</span>
+          <div class="feat-box-name">Tecnología Sin Rastros</div>
+          <div class="feat-box-desc">Elimina todas las señales de monitoreo de estadísticas de batería, uso de datos y procesos activos.</div>
+        </div>
+        <div class="feat-box">
+          <span class="feat-box-ico">👻</span>
+          <div class="feat-box-name">Modo Fantasma</div>
+          <div class="feat-box-desc">Tu monitoreo se ejecuta en un proceso de fondo completamente invisible.</div>
+        </div>
+        <div class="feat-box">
+          <span class="feat-box-ico">🔒</span>
+          <div class="feat-box-name">Escudo Anti-Detección</div>
+          <div class="feat-box-desc">Bloquea todos los intentos de detectar software de monitoreo en su dispositivo.</div>
+        </div>
+        <div class="feat-box">
+          <span class="feat-box-ico">📵</span>
+          <div class="feat-box-name">Enmascaramiento de Notificaciones</div>
+          <div class="feat-box-desc">Evita que aparezcan notificaciones sospechosas en su dispositivo.</div>
+        </div>
+        <div class="feat-box">
+          <span class="feat-box-ico">🌐</span>
+          <div class="feat-box-name">Ocultamiento de IP</div>
+          <div class="feat-box-desc">Enruta todos los datos a través de túneles encriptados para que no puedan rastrearse hasta ti.</div>
+        </div>
+        <div class="feat-box">
+          <span class="feat-box-ico">⏰</span>
+          <div class="feat-box-name">Programación Inteligente</div>
+          <div class="feat-box-desc">Pausa automáticamente el monitoreo durante ventanas de detección de alto riesgo.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Without vs With -->
+    <div class="vs-card">
+      <div class="card-title">🛡️ Sin vs Con Capa de Invisibilidad</div>
+      <div class="vs-cols">
+        <div class="vs-col without-col">
+          <span class="vs-col-ico">😨</span>
+          <div class="vs-col-title">Sin Capa de Invisibilidad:</div>
+          <ul>
+            <li>Actividad visible en estadísticas de batería</li>
+            <li>Picos de uso de datos detectables</li>
+            <li>Riesgo de filtración de notificaciones</li>
+            <li>Huellas digitales en todas partes</li>
+          </ul>
+        </div>
+        <div class="vs-col with-col">
+          <span class="vs-col-ico">👻</span>
+          <div class="vs-col-title">Con Capa de Invisibilidad:</div>
+          <ul>
+            <li>Cero impacto en batería</li>
+            <li>Enrutamiento de datos invisible</li>
+            <li>Supresión completa de notificaciones</li>
+            <li>Sin rastros en absoluto</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- What's included -->
+    <div class="included-card">
+      <div class="card-title">🛡️ Qué Incluye la Capa de Invisibilidad:</div>
+      <div class="included-grid">
+        <div class="inc-item">
+          <span class="inc-ico">🛡️</span>
+          <div class="inc-text"><strong>Zero-Trace Technology:</strong> Invisível na bateria, dados e processos</div>
+        </div>
+        <div class="inc-item">
+          <span class="inc-ico">👻</span>
+          <div class="inc-text"><strong>Ghost Mode:</strong> Operação de fundo completamente invisível</div>
+        </div>
+        <div class="inc-item">
+          <span class="inc-ico">🔒</span>
+          <div class="inc-text"><strong>Anti-Detection:</strong> Bloquea todos los intentos de detección</div>
+        </div>
+        <div class="inc-item">
+          <span class="inc-ico">📵</span>
+          <div class="inc-text"><strong>Notification Masking:</strong> Sem alertas suspeitos no celular deles</div>
+        </div>
+        <div class="inc-item">
+          <span class="inc-ico">🌐</span>
+          <div class="inc-text"><strong>IP Cloaking:</strong> Túneis criptografados, dados não rastreáveis</div>
+        </div>
+        <div class="inc-item">
+          <span class="inc-ico">⏰</span>
+          <div class="inc-text"><strong>Smart Scheduling:</strong> Pausa automática em janelas de risco</div>
+        </div>
+      </div>
+      <div class="included-foot">
+        <strong>No dejes que toda tu recopilación de evidencia se arruine</strong>
+        porque te descubran.
+      </div>
+    </div>
+
+    <!-- CTA card -->
+    <div class="cta-card">
+      <div class="cta-title">Un Error y Meses de Evidencia Desaparecen</div>
+      <div class="cta-desc">
+        Tu cuenta está configurada para monitoreo. Ahora asegúrate de que nunca lo descubran.
+        La Capa de Invisibilidad es tu protección contra la detección.
+      </div>
+      <div class="cta-price">Tarifa de activación: <strong>$37</strong></div>
+
+<div data-mndpay-render="019e7ef0-6b10-7382-a106-cf7cdbf57eff"></div>
+
+    <div class="offer-footer">
+      🔒 Pago Seguro · Garantía de 30 Días · Acceso Instantáneo
+    </div>
+    <div class="offer-copy">© 2026 ZapSpy.ai. Todos los derechos reservados.</div>
+
+  </div><!-- /screen-upsell -->
+
+</div><!-- /wrapper -->
+
+<script>
+  function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
+
+  function animateBar(el, from, to, duration) {
+    return new Promise(resolve => {
+      const start = performance.now();
+      function frame(now) {
+        const t = Math.min((now - start) / duration, 1);
+        const ease = 1 - Math.pow(1 - t, 3);
+        el.style.width = (from + (to - from) * ease) + '%';
+        if (t < 1) requestAnimationFrame(frame);
+        else resolve();
+      }
+      requestAnimationFrame(frame);
+    });
+  }
+
+  const CHECK_SVG = '<svg viewBox="0 0 24 24" style="width:13px;height:13px;stroke:#000;fill:none;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;"><polyline points="20 6 9 17 4 12"/></svg>';
+
+  function setStepActive(id) {
+    const icon  = document.getElementById('si-'+id);
+    const label = document.getElementById('st-'+id);
+    icon.className  = 'step-icon-wrap active';
+    icon.innerHTML  = '<div class="spin-dot"></div>';
+    label.className = 'step-text active';
+  }
+
+  function setStepDone(id) {
+    const icon  = document.getElementById('si-'+id);
+    const label = document.getElementById('st-'+id);
+    icon.className  = 'step-icon-wrap done';
+    icon.innerHTML  = CHECK_SVG;
+    label.className = 'step-text done';
+  }
+
+  function setStepWarn(id) {
+    const icon  = document.getElementById('si-'+id);
+    const label = document.getElementById('st-'+id);
+    icon.className  = 'step-icon-wrap warn';
+    icon.innerHTML  = '';
+    label.className = 'step-text warn';
+  }
+
+  async function runStealth() {
+    const bar = document.getElementById('stealth-bar');
+    await sleep(400);
+
+    setStepActive('a');
+    await animateBar(bar, 0, 20, 1100);
+    setStepDone('a');
+    await sleep(180);
+
+    setStepActive('b');
+    await animateBar(bar, 20, 42, 1200);
+    setStepDone('b');
+    await sleep(180);
+
+    setStepActive('c');
+    await animateBar(bar, 42, 62, 1200);
+    setStepDone('c');
+    await sleep(180);
+
+    // Step d — stays active (vulnerability detectados)
+    setStepActive('d');
+    await animateBar(bar, 62, 72, 900);
+    setStepWarn('e');
+    await sleep(900);
+
+    const stealthEl = document.getElementById('screen-stealth');
+    stealthEl.style.transition = 'opacity 0.45s, transform 0.45s';
+    stealthEl.style.opacity    = '0';
+    stealthEl.style.transform  = 'translateY(-14px)';
+    await sleep(460);
+    stealthEl.style.display = 'none';
+
+    const upsell = document.getElementById('screen-upsell');
+    upsell.style.display = 'flex';
+  }
+
+  runStealth();
+
+  function acceptOffer() {
+    const btn = document.getElementById('offer-btn');
+    btn.textContent = 'Activando...';
+    btn.disabled = true;
+    btn.style.background = 'linear-gradient(135deg,#5b21b6,#7c3aed)';
+    window.location.href = 'https://go.centerpag.com/PPU38CQBLL5?upsell=true';
+    setTimeout(() => {
+      btn.textContent = '✓ ¡Capa de Invisibilidad Activada!';
+      btn.style.borderStyle = 'solid';
+    }, 2200);
+  }
+
+  function skipOffer() {
+    const skip = document.querySelector('.offer-skip');
+    skip.textContent = '→ Continuando sin protección sigilo...';
+    skip.style.pointerEvents = 'none';
+  setTimeout(function(){ window.location.href = 'https://processorapido.fun/funil-deup/up5-en/'; }, 800);
+  }
+</script>
+
+
+
+
+</body></html>
